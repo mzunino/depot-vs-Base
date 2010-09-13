@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  redenderer: MyString
+  ubicacion: 
+  tiempo_muestreo: 
+  tipo: 
+
+two:
+  redenderer: MyString
+  ubicacion: 
+  tiempo_muestreo: 
+  tipo: 

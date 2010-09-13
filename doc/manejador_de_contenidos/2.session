@@ -1,0 +1,13 @@
+window_sizes 1280 675 300 974 527 69
+diagrams
+  active  classdiagram_ref 129154 // Manejador de Contenidos
+    974 557 100 4 0 0
+end
+show_stereotypes
+selected attribute_ref 138370 // nivel
+open
+  class_ref 129154 // Perfil
+  class_ref 129282 // Layout
+  class_ref 134530 // RendererAdmin
+end
+end

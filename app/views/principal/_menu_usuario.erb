@@ -1,0 +1,17 @@
+
+<%= link_to 'Inicio', :controller => 'principal' %><br />
+<hr />
+<div class="depot-form">
+  <fieldset>
+    <legend>Menu Usuario</legend>
+	<p>
+	       Este amigo carga el <br />
+	       menu para el usuario: <%= @nombre_usuario %>
+	       Item: <%= numero_espacio %>
+	</p>
+  </fieldset>
+</div>
+<hr />
+<% if @user %>
+   <%= link_to 'Logout', :controller => :admin, :action => 'logout' %>
+<% end %>
