@@ -1,11 +1,20 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :tipo_contenidos
+
+  map.resources :tipo_elementos
+
+  map.resources :elementos
+
+  map.resources :contenidos
+
   map.resources :containers
 
   map.resources :profiles
 
   map.resources :users
-
-
+  
+  map.resources :app_noticias
+  
   # The priority is based upon order of creation: first created -> highest priority.
 
   # Sample of regular route:

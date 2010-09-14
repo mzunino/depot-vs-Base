@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100913124441) do
+ActiveRecord::Schema.define(:version => 20100914142629) do
 
   create_table "containers", :force => true do |t|
     t.text     "template"
@@ -19,10 +19,18 @@ ActiveRecord::Schema.define(:version => 20100913124441) do
   end
 
   create_table "contenidos", :force => true do |t|
-    t.string   "redenderer"
+    t.string   "template"
+    t.text     "descripcion"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "rotacion"
+  end
+
+  create_table "elementos", :force => true do |t|
+    t.integer  "contenido_id", :null => false
+    t.string   "valor"
+    t.integer  "tipo_id",      :null => false
     t.integer  "ubicacion"
-    t.integer  "tiempo_muestreo"
-    t.integer  "tipo"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -45,6 +53,20 @@ ActiveRecord::Schema.define(:version => 20100913124441) do
 
   add_index "sessions", ["session_id"], :name => "index_sessions_on_session_id"
   add_index "sessions", ["updated_at"], :name => "index_sessions_on_updated_at"
+
+  create_table "tipo_contenidos", :force => true do |t|
+    t.string   "template"
+    t.string   "descripcion"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "tipo_elementos", :force => true do |t|
+    t.string   "template"
+    t.string   "descripcion"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", :force => true do |t|
     t.string   "name"

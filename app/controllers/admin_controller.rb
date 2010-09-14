@@ -11,7 +11,7 @@ class AdminController < ApplicationController
 			session[:user_id] = user.id
 			uri = session[:original_uri]
 			session[:original_uri] = nil
-			redirect_to(uri || { :action => "index" })
+			redirect_to(uri || { :controller => "app_noticias" })
 		  else
 		    flash.now[:notice] = "Usuario o password incorrecto"
 		  end

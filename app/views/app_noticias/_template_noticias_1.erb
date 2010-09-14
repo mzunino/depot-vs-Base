@@ -1,0 +1,40 @@
+<% 
+  # Inicializo el Hash de elementos
+  x = {}
+  for @elemento in @elementos -%>
+
+    <%
+
+	# Voy a buscar el tipo del elemento actual para obtener el renderer que 
+	# procederá a dibujarlo
+        render_elemento = TipoElemento.find(@elemento.tipo_id).template
+
+	# Me fijo si previamente no hay un elemento cargado en la misma ubicacion
+	# En caso de ser así se debería rotar entre ellos, de acuerdo a un parametro
+	# rotación que funciona como los contenidos
+	if x[@elemento.ubicacion].nil?
+		x[@elemento.ubicacion] = Array.new
+	end
+
+	# Cargo en el vector de elementos que tengo en el Hash para mostrar 
+	# en las posiciones estipuladas mas abajo en el código Html
+	x[@elemento.ubicacion] << render(:partial => render_elemento , :object => @elemento)
+
+    %>
+
+<% end %>
+
+
+<!-- Procedo a dibujar el contenido de la noticia -->
+<div class="noticia-form">
+  <fieldset>
+    <legend><%= @noticia.descripcion %></legend>
+	<hr />
+	<%= h_hola  %>
+	<%= x[1][0] %>
+	<%= x[2][0] %>
+        <hr />
+	<%= x[3][0] %>
+	<%= x[4][0] %>
+  </fieldset>
+</div>

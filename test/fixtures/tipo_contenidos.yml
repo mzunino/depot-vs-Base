@@ -2,8 +2,8 @@
 
 one:
   template: MyString
-  descripcion: MyText
+  descripcion: MyString
 
 two:
   template: MyString
-  descripcion: MyText
+  descripcion: MyString

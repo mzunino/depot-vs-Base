@@ -1,6 +1,6 @@
 format 66
 "manejador_de_contenidos"
-  revision 16
+  revision 17
   modified_by 2 "mauricio"
 
 
@@ -244,6 +244,22 @@ format 66
 	  a role_name "" multiplicity "*" protected
 	    classrelation_ref 140034 // <directional composition>
 	  b multiplicity "1" parent class_ref 135682 // Elemento
+      end
+
+      attribute 141314 "descripcion"
+	protected explicit_type ""
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+      end
+
+      classrelation 141314 // <directional composition>
+	relation 140418 *-->
+	  a role_name "" protected
+	    classrelation_ref 141314 // <directional composition>
+	  b parent class_ref 136962 // TipoContenido
       end
     end
 
@@ -585,6 +601,34 @@ format 66
       end
 
       attribute 140034 "descripcion"
+	protected explicit_type ""
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+      end
+    end
+
+    class 136962 "TipoContenido"
+      visibility package 
+      cpp_decl ""
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      
+      attribute 141442 "template"
+	protected explicit_type ""
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+      end
+
+      attribute 141570 "descripcion"
 	protected explicit_type ""
 	cpp_decl ""
 	java_decl ""
