@@ -1,6 +1,6 @@
 format 66
 "manejador_de_contenidos"
-  revision 14
+  revision 16
   modified_by 2 "mauricio"
 
 
@@ -195,7 +195,7 @@ format 66
 	idl_decl ""
       end
 
-      attribute 130306 "tiempoMuestreo"
+      attribute 130306 "rotacion"
 	protected explicit_type ""
 	cpp_decl ""
 	java_decl ""
@@ -238,6 +238,13 @@ format 66
       classrelation 136322 // <composition>
 	relation_ref 135426 // <composition>
       end
+
+      classrelation 140034 // <directional composition>
+	relation 139138 *-->
+	  a role_name "" multiplicity "*" protected
+	    classrelation_ref 140034 // <directional composition>
+	  b multiplicity "1" parent class_ref 135682 // Elemento
+      end
     end
 
     class 129538 "AbstractRenderer"
@@ -249,7 +256,7 @@ format 66
       idl_decl ""
       explicit_switch_type ""
       
-      operation 129154 "obtenerHtml"
+      operation 129154 "index"
 	abstract cpp_virtual public explicit_return_type ""
 	nparams 1
 	  param in name "perfil" explicit_type "string"
@@ -278,22 +285,23 @@ format 66
 	  b parent class_ref 129538 // AbstractRenderer
       end
 
-      operation 129410 "obtenerHtml"
-	public explicit_return_type ""
-	nparams 1
-	  param in name "usuario" explicit_type "string"
-	
-	
-	
-	
-	
-      end
-
       classrelation 136450 // <unidirectional association>
 	relation 135554 --->
 	  a role_name "" protected
 	    classrelation_ref 136450 // <unidirectional association>
 	  b parent class_ref 133250 // Noticia
+      end
+
+      operation 131842 "index"
+	cpp_virtual public explicit_return_type ""
+	nparams 1
+	  param in name "perfil" explicit_type "string"
+	    defaultvalue "\"\""
+	
+	
+	
+	
+	
       end
     end
 
@@ -313,22 +321,23 @@ format 66
 	  b parent class_ref 129538 // AbstractRenderer
       end
 
-      operation 129282 "obtenerHtml"
-	public explicit_return_type ""
-	nparams 1
-	  param in name "usuario" explicit_type "string"
-	
-	
-	
-	
-	
-      end
-
       classrelation 136578 // <unidirectional association>
 	relation 135682 --->
 	  a role_name "" protected
 	    classrelation_ref 136578 // <unidirectional association>
 	  b parent class_ref 133378 // ItemMenu
+      end
+
+      operation 131714 "index"
+	cpp_virtual public explicit_return_type ""
+	nparams 1
+	  param in name "perfil" explicit_type "string"
+	    defaultvalue "\"\""
+	
+	
+	
+	
+	
       end
     end
 
@@ -484,21 +493,104 @@ format 66
       idl_decl ""
       explicit_switch_type ""
       
-      operation 130562 "obtenerHtml"
-	public explicit_return_type ""
-	nparams 0
+      classrelation 138882 // <generalisation>
+	relation 137986 ---|>
+	  a public
+	    classrelation_ref 138882 // <generalisation>
+	  b parent class_ref 129538 // AbstractRenderer
+      end
+
+      operation 131970 "index"
+	cpp_virtual public explicit_return_type ""
+	nparams 1
+	  param in name "perfil" explicit_type "string"
+	    defaultvalue "\"\""
 	
 	
 	
 	
 	
       end
+    end
 
-      classrelation 138882 // <generalisation>
-	relation 137986 ---|>
-	  a public
-	    classrelation_ref 138882 // <generalisation>
-	  b parent class_ref 129538 // AbstractRenderer
+    class 135682 "Elemento"
+      visibility package 
+      cpp_decl ""
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      
+      attribute 139522 "tipo"
+	protected explicit_type ""
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+      end
+
+      attribute 139650 "valor"
+	protected explicit_type ""
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+      end
+
+      attribute 139778 "ubicacion"
+	protected explicit_type ""
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+      end
+
+      attribute 140162 "contenido_id"
+	protected explicit_type ""
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+      end
+
+      classrelation 140162 // <directional composition>
+	relation 139266 *-->
+	  a role_name "" multiplicity "1" protected
+	    classrelation_ref 140162 // <directional composition>
+	  b multiplicity "*" parent class_ref 135810 // TipoElemento
+      end
+    end
+
+    class 135810 "TipoElemento"
+      visibility package 
+      cpp_decl ""
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      
+      attribute 139906 "template"
+	protected explicit_type ""
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+      end
+
+      attribute 140034 "descripcion"
+	protected explicit_type ""
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
       end
     end
   end

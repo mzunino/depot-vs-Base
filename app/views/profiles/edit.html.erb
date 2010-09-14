@@ -1,4 +1,4 @@
-<h1>Editing profile</h1>
+<h1>Editando Perfiles de Usuario:</h1>
 
 <% form_for(@profile) do |f| %>
   <%= f.error_messages %>
@@ -13,7 +13,7 @@
   </p>
   <p>
     <%= f.label :container_id %>
-    <%= f.collection_select :container_id, Container.all, :id, :descripcion,{}, :multiple => false %>
+    <%= f.collection_select :container_id, Container.all, :id, :descripcion, :multiple => false%>
   </p>
   <p>
     <%= f.label :nivel %>
