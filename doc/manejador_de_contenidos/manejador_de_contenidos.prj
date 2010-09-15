@@ -1,6 +1,6 @@
 format 66
 "manejador_de_contenidos"
-  revision 17
+  revision 18
   modified_by 2 "mauricio"
 
 
@@ -260,6 +260,15 @@ format 66
 	  a role_name "" protected
 	    classrelation_ref 141314 // <directional composition>
 	  b parent class_ref 136962 // TipoContenido
+      end
+
+      attribute 142722 "fecha"
+	protected explicit_type ""
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
       end
     end
 
