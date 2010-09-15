@@ -1,6 +1,6 @@
 <% 
   # Inicializo el Hash de elementos
-  x = {}
+  hashElementosUbicacion = {}
   for @elemento in @elementos -%>
 
     <%
@@ -12,29 +12,46 @@
 	# Me fijo si previamente no hay un elemento cargado en la misma ubicacion
 	# En caso de ser así se debería rotar entre ellos, de acuerdo a un parametro
 	# rotación que funciona como los contenidos
-	if x[@elemento.ubicacion].nil?
-		x[@elemento.ubicacion] = Array.new
+	if hashElementosUbicacion[@elemento.ubicacion].nil?
+		hashElementosUbicacion[@elemento.ubicacion] = Array.new
 	end
 
 	# Cargo en el vector de elementos que tengo en el Hash para mostrar 
 	# en las posiciones estipuladas mas abajo en el código Html
-	x[@elemento.ubicacion] << render(:partial => render_elemento , :object => @elemento)
+	hashElementosUbicacion[@elemento.ubicacion] << render(:partial => render_elemento , :object => @elemento)
 
     %>
 
 <% end %>
 
 
-<!-- Procedo a dibujar el contenido de la noticia -->
-<div class="noticia-form">
+<script type="text/javascript" src="javascripts/jquery.js"></script>
+<script type="text/javascript" src="javascripts/thickbox.js"></script>
+<link rel="stylesheet" href="stylesheets/thickbox.css" type="text/css" media="screen" />
+
+
+<!-- Procedo a dibujar el contenido de la noticia --> 
+<div class="contenido">
   <fieldset>
     <legend><%= @noticia.descripcion %></legend>
 	<hr />
-	<%= h_hola  %>
-	<%= x[1][0] %>
-	<%= x[2][0] %>
+	<%= mostrarElemento(hashElementosUbicacion, 2,0)  %>
+	<%= mostrarElemento(hashElementosUbicacion, 3,0)  %>
         <hr />
-	<%= x[3][0] %>
-	<%= x[4][0] %>
   </fieldset>
 </div>
+<hr>
+<!--
+<div class="contenido">
+          <fieldset>
+            <legend><%=mostrarElemento(hashElementosUbicacion, 1,0)%></legend>
+            <div class="cuerpo_contenido">
+		   <%=mostrarElemento(hashElementosUbicacion, 2,0)%>
+
+                <h3><%=mostrarElemento(hashElementosUbicacion, 1,0) %></h3>
+                <%= mostrarElemento(hashElementosUbicacion, 3,0) %>
+
+            </div>
+        </fieldset>
+</div>
+-->

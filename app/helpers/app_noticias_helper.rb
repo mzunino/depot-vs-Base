@@ -1,9 +1,23 @@
 module AppNoticiasHelper
 
 
-        def h_hola
+        def mostrarElemento(hash, ubicacion, elemento_vector)
 
-           return AppNoticiasController.hola
+		if hash.nil?
+			return "Dato no cargado"
+		else
+			if hash[ubicacion].nil?
+				return "Dato no cargado"
+			else
+				if hash[ubicacion][elemento_vector].nil?
+					return "Dato no cargado"
+				else
+					return hash[ubicacion][elemento_vector]
+				end
+			end
+		end
+
+           
 
         end
 

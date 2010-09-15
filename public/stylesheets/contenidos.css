@@ -23,7 +23,7 @@ body{
 .cuerpo_contenido { 
 	overflow: auto;
 
-  width: 300px;
+  width: 500px;
   height: 23.5em;
 	padding: 1px; 
 /*	width: 100%; 
@@ -78,14 +78,14 @@ body{
   /* background: #141; */
   /* padding: 5px; */ 
 }
-
+/*
 #principal .contenido img {
   width: 75px;
   float: left;
   padding: 5px;
   border: 0px;
   
-}
+}*/
 
 #principal .contenido legend {
   color: #dfd;
