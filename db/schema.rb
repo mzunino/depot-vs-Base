@@ -9,11 +9,18 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100915024637) do
+ActiveRecord::Schema.define(:version => 20100916142543) do
 
   create_table "containers", :force => true do |t|
     t.text     "template"
     t.text     "descripcion"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "contenido_profiles", :force => true do |t|
+    t.integer  "contenido_id", :null => false
+    t.integer  "profile_id",   :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end

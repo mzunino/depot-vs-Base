@@ -1,6 +1,6 @@
 format 66
 "manejador_de_contenidos"
-  revision 18
+  revision 19
   modified_by 2 "mauricio"
 
 
@@ -88,7 +88,7 @@ format 66
 	relation 129282 *-->
 	  a role_name "" multiplicity "1" protected
 	    classrelation_ref 129410 // <directional composition>
-	  b parent class_ref 129282 // Layout
+	  b parent class_ref 129282 // Container
       end
 
       classrelation 132482 // <directional composition>
@@ -99,15 +99,6 @@ format 66
       end
 
       attribute 137090 "contenedor"
-	protected explicit_type ""
-	cpp_decl ""
-	java_decl ""
-	php_decl ""
-	python_decl ""
-	idl_decl ""
-      end
-
-      attribute 137218 "menu"
 	protected explicit_type ""
 	cpp_decl ""
 	java_decl ""
@@ -131,9 +122,32 @@ format 66
 	python_decl ""
 	idl_decl ""
       end
+
+      classrelation 142466 // <directional composition>
+	relation 141570 *-->
+	  a role_name "" multiplicity "*" protected
+	    classrelation_ref 142466 // <directional composition>
+	  b parent class_ref 138114 // App
+      end
+
+      classrelation 143234 // <composition>
+	relation 142338 *---
+	  a role_name "" multiplicity "*" protected
+	    classrelation_ref 143234 // <composition>
+	  b role_name "" protected
+	    classrelation_ref 143362 // <composition>
+      end
+
+      classrelation 143490 // <composition>
+	relation 142466 *---
+	  a role_name "" multiplicity "*" protected
+	    classrelation_ref 143490 // <composition>
+	  b role_name "" protected
+	    classrelation_ref 143618 // <composition>
+      end
     end
 
-    class 129282 "Layout"
+    class 129282 "Container"
       visibility package 
       cpp_decl ""
       java_decl ""
@@ -269,6 +283,26 @@ format 66
 	php_decl ""
 	python_decl ""
 	idl_decl ""
+      end
+
+      attribute 144130 "App"
+	protected explicit_type ""
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+      end
+
+      classrelation 143106 // <directional composition>
+	relation 142210 *-->
+	  a role_name "" multiplicity "1" package
+	    classrelation_ref 143106 // <directional composition>
+	  b parent class_ref 138114 // App
+      end
+
+      classrelation 143362 // <composition>
+	relation_ref 142338 // <composition>
       end
     end
 
@@ -644,6 +678,113 @@ format 66
 	php_decl ""
 	python_decl ""
 	idl_decl ""
+      end
+    end
+
+    class 138114 "App"
+      visibility package 
+      cpp_decl ""
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      
+      attribute 143874 "controller"
+	protected explicit_type ""
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+      end
+
+      attribute 144002 "descripcion"
+	protected explicit_type ""
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+      end
+
+      classrelation 142594 // <dependency>
+	relation 141698 -_->
+	  a default
+	    classrelation_ref 142594 // <dependency>
+	  b parent class_ref 129410 // Contenido
+      end
+
+      classrelation 142722 // <dependency>
+	relation 141826 -_->
+	  a default
+	    classrelation_ref 142722 // <dependency>
+	  b parent class_ref 138242 // AppNoticiasController
+      end
+
+      classrelation 143618 // <composition>
+	relation_ref 142466 // <composition>
+      end
+
+      classrelation 143746 // <dependency>
+	relation 142594 -_->
+	  a default
+	    classrelation_ref 143746 // <dependency>
+	  b parent class_ref 138370 // AppCuentasController
+      end
+    end
+
+    class 138242 "AppNoticiasController"
+      visibility package 
+      cpp_decl ""
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      
+      operation 133122 "index"
+	public explicit_return_type ""
+	nparams 0
+	
+	
+	
+	
+	
+      end
+
+      classrelation 142850 // <dependency>
+	relation 141954 -_->
+	  a default
+	    classrelation_ref 142850 // <dependency>
+	  b parent class_ref 129410 // Contenido
+      end
+
+      classrelation 142978 // <directional composition>
+	relation 142082 *-->
+	  a role_name "" multiplicity "*" protected
+	    classrelation_ref 142978 // <directional composition>
+	  b parent class_ref 129410 // Contenido
+      end
+    end
+
+    class 138370 "AppCuentasController"
+      visibility package 
+      cpp_decl ""
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      
+      operation 133250 "index"
+	public explicit_return_type ""
+	nparams 0
+	
+	
+	
+	
+	
       end
     end
   end

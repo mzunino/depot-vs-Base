@@ -1,24 +1,17 @@
 class AppNoticiasController < ApplicationController
   def index
 
-	@noticias = Contenido.find_noticias_del_perfil
+	
+        if session[:user_id]
+              @user=User.find(session[:user_id])
+              if @user
+                    profile_id=@user.profile_id
+              end
+        end
+	@noticias = Contenido.find_noticias_del_perfil(profile_id)
 
 
   end
 
-  def hola
-	return "Hola"
-  end
-
-  def controlarNulabilidad
-
-
-	if params[x[1]].nil?
-		return "No esta cargado"
-	else
-		return params[x[1]][params[2]]
-	end
-
-  end
 
 end

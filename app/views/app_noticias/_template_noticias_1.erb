@@ -25,33 +25,22 @@
 <% end %>
 
 
-<script type="text/javascript" src="javascripts/jquery.js"></script>
-<script type="text/javascript" src="javascripts/thickbox.js"></script>
-<link rel="stylesheet" href="stylesheets/thickbox.css" type="text/css" media="screen" />
-
-
 <!-- Procedo a dibujar el contenido de la noticia --> 
-<div class="contenido">
-  <fieldset>
-    <legend><%= @noticia.descripcion %></legend>
-	<hr />
-	<%= mostrarElemento(hashElementosUbicacion, 2,0)  %>
-	<%= mostrarElemento(hashElementosUbicacion, 3,0)  %>
-        <hr />
-  </fieldset>
-</div>
-<hr>
+<!-- <a href="#" onclick="Effect.toggle('tag_<%=@noticia.id%>', 'appear'); return false;">tag_<%= @noticia.id %></a> -->
+
+<!--  <div> -->
+
+  <input type="button" id="button" value="Mostrar Ventana" />
 <!--
-<div class="contenido">
+      <div class="contenido">
           <fieldset>
-            <legend><%=mostrarElemento(hashElementosUbicacion, 1,0)%></legend>
-            <div class="cuerpo_contenido">
-		   <%=mostrarElemento(hashElementosUbicacion, 2,0)%>
+            <legend><%= @noticia.descripcion %></legend>
+		        <hr />
+		            <%= mostrarElemento(hashElementosUbicacion, 1,0)  %>
+	        	    <%= mostrarElemento(hashElementosUbicacion, 2,0)  %>
+		        <hr />
+	  </fieldset>
+      </div>
+-->	
+<!--  </div> -->
 
-                <h3><%=mostrarElemento(hashElementosUbicacion, 1,0) %></h3>
-                <%= mostrarElemento(hashElementosUbicacion, 3,0) %>
-
-            </div>
-        </fieldset>
-</div>
--->
