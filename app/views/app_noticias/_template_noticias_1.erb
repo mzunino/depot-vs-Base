@@ -28,10 +28,15 @@
 <!-- Procedo a dibujar el contenido de la noticia --> 
 <!-- <a href="#" onclick="Effect.toggle('tag_<%=@noticia.id%>', 'appear'); return false;">tag_<%= @noticia.id %></a> -->
 
-<!--  <div> -->
 
-  <input type="button" id="button" value="Mostrar Ventana" />
-<!--
+<% @contenido_modal = "http://0.0.0.0:3000"
+
+#"<div><div class=\"contenido\"><fieldset><legend> " + @noticia.descripcion + "</legend><hr />" +  mostrarElemento(hashElementosUbicacion, 1,0)  + mostrarElemento(hashElementosUbicacion, 2,0)  + " <hr /></fieldset></div></div> "
+%>
+
+
+  <div> 
+
       <div class="contenido">
           <fieldset>
             <legend><%= @noticia.descripcion %></legend>
@@ -39,8 +44,10 @@
 		            <%= mostrarElemento(hashElementosUbicacion, 1,0)  %>
 	        	    <%= mostrarElemento(hashElementosUbicacion, 2,0)  %>
 		        <hr />
+			<input type="button" id="button" value="Mostrar Ventana" onClick='mostrarModal("<%=@contenido_modal%>", "notice")'/>
 	  </fieldset>
       </div>
--->	
-<!--  </div> -->
+
+  </div>
+
 

@@ -1,47 +1,11 @@
+
 $(document).ready(function(){
         //parametros principales
         
-        var contenidoHTML = "hola"
+        var contenidoHTML = '<h1>No hay contenido para mostrar</h1><%=@contenido_modal%><button onclick=\"closeModal()\">Cerrar</button>'
 
         var ancho = 600;
         var alto = 250;
-
-        $('#button').click(function(){
-                // fondo transparente
-                // creamos un div nuevo, con dos atributos
-                var bgdiv = $('<div>').attr({
-                                        className: 'bgtransparent',
-                                        id: 'bgtransparent'
-                                        });
-                
-                // agregamos nuevo div a la pagina
-                $('body').append(bgdiv);
-                
-                // obtenemos ancho y alto de la ventana del explorer
-                var wscr = $(window).width();
-                var hscr = $(window).height();
-                
-                //establecemos las dimensiones del fondo
-                $('#bgtransparent').css("width", wscr);
-                $('#bgtransparent').css("height", hscr);
-                
-                
-                // ventana modal
-                // creamos otro div para la ventana modal y dos atributos
-                var moddiv = $('<div>').attr({
-                                        className: 'bgmodal',
-                                        id: 'bgmodal'
-                                        });
-                
-                // agregamos div a la pagina
-                $('body').append(moddiv);
-
-                // agregamos contenido HTML a la ventana modal
-                $('#bgmodal').append(contenidoHTML);
-                
-                // redimensionamos para que se ajuste al centro y mas
-                $(window).resize();
-        });
 
         $(window).resize(function(){
                 // dimensiones de la ventana del explorer
@@ -70,9 +34,128 @@ $(document).ready(function(){
         });
         
  });
-        
+       
+function mostrarModal(url, nombreElemento){
+
+	var http = createAjax();
+	var params = "";
+	var divContenidoHTML = "";
+	http.open("GET", url, true);
+	http.onreadystatechange = function() {//Call a function when the state changes.
+		if(http.readyState == 4 && http.status == 200) {
+			
+			contenidoHTML = http.responseText;
+		}
+	}
+	http.send(null);
+
+
+
+      	var contenidoHTML = divContenidoHTML + '<button onclick=\"closeModal()\">Cerrar</button>';
+
+	alert(contenidoHTML);
+
+        var ancho = 600;
+        var alto = 250;
+
+        // fondo transparente
+        // creamos un div nuevo, con dos atributos
+        var bgdiv = $('<div>').attr({
+                               className: 'bgtransparent',
+                               id: 'bgtransparent'
+                               });
+
+        // agregamos nuevo div a la pagina
+        $('body').append(bgdiv);
+
+        // obtenemos ancho y alto de la ventana del explorer
+        var wscr = $(window).width();
+        var hscr = $(window).height();
+
+        //establecemos las dimensiones del fondo
+        $('#bgtransparent').css("width", wscr);
+        $('#bgtransparent').css("height", hscr);
+
+
+        // ventana modal
+        // creamos otro div para la ventana modal y dos atributos
+        var moddiv = $('<div>').attr({
+                                className: 'bgmodal',
+                                id: 'bgmodal'
+                                });
+
+        // agregamos div a la pagina
+        $('body').append(moddiv);
+
+        // agregamos contenido HTML a la ventana modal
+        $('#bgmodal').append(contenidoHTML);
+
+        // redimensionamos para que se ajuste al centro y mas
+        $(window).resize();
+
+}
+
+
+function recogeInfo()
+{
+    if(xmlHttp.readyState == 4 && xmlHttp.status == 200)
+    {
+	alert(xmlHttp.responseText);
+    }
+}
+ 
 function closeModal(){
         // removemos divs creados
         $('#bgmodal').remove();
         $('#bgtransparent').remove();
+}
+
+
+
+
+function createAjax()
+{
+
+	var obj = false;
+	
+	if(window.XMLHttpRequest)
+	{
+		try 
+		{
+			//Mozilla - Firefox, etc
+			obj = new XMLHttpRequest();
+		}
+		catch (e)
+		{
+			request = false;
+		}		
+	}
+	else if (window.ActiveXObject)
+	{
+		try
+		{
+			obj = new ActiveXObject("Msxml2.XMLHTTP");
+		}
+		catch (e)
+		{
+			try
+			{
+				obj = new ActiveXObject("Microsoft.XMLHTTP");				
+			}
+			catch (e)
+			{
+				obj = false;
+			}				
+		}		
+	}
+	if (obj)
+	{
+		return obj;
+		
+	}
+	else
+	{
+		return null;
+	}
+	
 }
