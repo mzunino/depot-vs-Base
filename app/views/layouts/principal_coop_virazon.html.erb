@@ -35,7 +35,8 @@
 	      <% end %>
 
 <!-- Se carga aplicación menú de usuario -->
-		<%= render(:partial => "principal/menu_usuario", :locals => { :numero_espacio => "1" })%>	
+		<% @aplicaciones_profile = AppProfile.find_aplicaciones_del_perfil(@user.profile_id) %>
+		<%= render(:partial => "principal/menu_usuario", :object => @aplicaciones_profile)%>	
            
 	   </div>
            <div id="main">

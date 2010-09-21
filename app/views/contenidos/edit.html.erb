@@ -19,7 +19,13 @@
     <%= f.label :fecha %><br />
     <%= f.text_field :fecha %>
   </p>
+
+
   <p>
+    <%= f.label :app_id %><br />
+    <%= f.collection_select :app_id, App.find(:all), :id, :nombre %>
+  </p>
+
   <p>
     <%= f.submit 'Update' %>
   </p>

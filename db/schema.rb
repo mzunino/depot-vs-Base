@@ -9,7 +9,29 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100916142543) do
+ActiveRecord::Schema.define(:version => 20100921120350) do
+
+  create_table "app_profiles", :force => true do |t|
+    t.integer  "app_id"
+    t.integer  "profile_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "apps", :force => true do |t|
+    t.string   "nombre"
+    t.string   "controller"
+    t.integer  "nivel"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "asociacion_perfils", :force => true do |t|
+    t.string   "nombre"
+    t.string   "descripcion"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "containers", :force => true do |t|
     t.text     "template"
@@ -20,7 +42,7 @@ ActiveRecord::Schema.define(:version => 20100916142543) do
 
   create_table "contenido_profiles", :force => true do |t|
     t.integer  "contenido_id", :null => false
-    t.integer  "profile_id",   :null => false
+    t.integer  "profile_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -32,6 +54,7 @@ ActiveRecord::Schema.define(:version => 20100916142543) do
     t.integer  "rotacion"
     t.integer  "tipo_id",     :null => false
     t.date     "fecha"
+    t.integer  "app_id"
   end
 
   create_table "elementos", :force => true do |t|

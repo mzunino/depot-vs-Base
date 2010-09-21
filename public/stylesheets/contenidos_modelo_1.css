@@ -8,6 +8,7 @@ body{
 
 }
 
+
 .overflow{
         scrollbar-face-color: #996600;
         scrollbar-3dlight-color: #000000;
@@ -418,3 +419,58 @@ h1 {
         padding-right : 5px;
 }
 
+
+/*        V2        */
+.outer{
+	list-style:none;
+	margin:0px;
+	padding:0px;
+}
+
+	
+#menu {
+	width: 200px;
+	border-style: solid solid none solid;
+	border-color: #94AA74;
+	border-width: 1px;
+
+	}
+#menu ul{
+	list-style:none;
+	margin:0px;
+	padding:0px;
+	}
+	
+#menu li a {
+	height: 32px;
+  	voice-family: "\"}\""; 
+  	voice-family: inherit;
+  	height: 24px;
+	text-decoration: none;
+	font-weight:normal;
+	}	
+	
+#menu li a:link, #menu li a:visited {
+	color: #FFFFFF;
+	display: block;
+	background: url(/images/sin_seleccionar.jpg);
+	background-color: #000000;
+	background-repeat:no-repeat;
+	padding: 8px 0 0 50px;
+	}
+	
+#menu li a:hover {
+	color: #666666;
+	background: url(/images/menu_activo.jpg);
+	background-color: #000000;
+	background-repeat:no-repeat;
+	padding: 8px 0 0 50px;
+	}
+	
+#menu li a:active {
+	color: #666666;
+	background: url(/images/seleccionado.jpg) ;
+	background-repeat:no-repeat;
+	background-color: #000000;
+	padding: 8px 0 0 50px;
+	}

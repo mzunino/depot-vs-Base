@@ -17,6 +17,11 @@
   <%=h @contenido.fecha %>
 </p>
 
+<p>
+  <b>Aplicación:</b>
+  <%= h App.find(@contenido.app_id).nombre %>
+</p>
+
 
 <%= link_to 'Edit', edit_contenido_path(@contenido) %> |
 <%= link_to 'Back', contenidos_path %>

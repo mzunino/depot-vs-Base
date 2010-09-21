@@ -3,15 +3,26 @@
 <hr />
 <div class="depot-form">
   <fieldset>
-    <legend>Menu Usuario</legend>
-	<p>
-	       Este amigo carga el <br />
-	       menu para el usuario: <%= @nombre_usuario %>
-	       Item: <%= numero_espacio %>
-	</p>
+    <legend>Aplicaciones:</legend>
+
+	<div id="menu">
+
+        	<ul>
+		<% for elemento in @aplicaciones_profile 
+			logger.debug("Buscando app id: #{elemento.app_id}")
+			aplicacion = App.find(elemento.app_id)
+			texto_link = aplicacion.nombre
+			controller = aplicacion.controller
+			%>
+		       <li ><%= link_to texto_link, :controller => controller %></li>
+		<% end %>
+        	</ul>
+	</div>
   </fieldset>
 </div>
 <hr />
 <% if @user %>
    <%= link_to 'Logout', :controller => :admin, :action => 'logout' %>
 <% end %>
+
+

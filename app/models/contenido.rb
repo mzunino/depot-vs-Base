@@ -4,6 +4,7 @@ class Contenido < ActiveRecord::Base
 	has_many :elemento
 	has_one :tipo_contenido
 
+	validates_presence_of :app_id, :message => 'Se debe especificar una aplicación para este contenido'
 
         protected
 
