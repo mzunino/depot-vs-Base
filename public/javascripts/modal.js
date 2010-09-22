@@ -35,23 +35,29 @@ $(document).ready(function(){
         
  });
        
-function mostrarModal(url, nombreElemento){
+function mostrarModal(url){
 
 	var http = createAjax();
 	var params = "";
-	var divContenidoHTML = "";
+	var cont = "";
+
 	http.open("GET", url, true);
+
 	http.onreadystatechange = function() {//Call a function when the state changes.
+		
 		if(http.readyState == 4 && http.status == 200) {
+			mostrarContenido( http.responseText );
 			
-			divContenidoHTML = http.responseText;
 		}
 	}
 	http.send(null);
 
+}
 
 
-      	var contenidoHTML = divContenidoHTML + '<button onclick=\"closeModal()\">Cerrar</button>';
+function mostrarContenido(contenido){
+
+	var contenidoHTML = contenido + '<button onclick=\"closeModal()\">Cerrar</button>';
 
         var ancho = 600;
         var alto = 250;
@@ -90,6 +96,7 @@ function mostrarModal(url, nombreElemento){
 
         // redimensionamos para que se ajuste al centro y mas
         $(window).resize();
+
 
 }
 

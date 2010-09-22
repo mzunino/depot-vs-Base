@@ -29,7 +29,7 @@
 <!-- <a href="#" onclick="Effect.toggle('tag_<%=@noticia.id%>', 'appear'); return false;">tag_<%= @noticia.id %></a> -->
 
 
-<% @contenido_modal = "http://0.0.0.0:3000"
+<% @contenido_modal = "app_noticias/mostrar_noticia/#{@noticia.id}" #"http://0.0.0.0:3000/contenidos/1"
 
 #"<div><div class=\"contenido\"><fieldset><legend> " + @noticia.descripcion + "</legend><hr />" +  mostrarElemento(hashElementosUbicacion, 1,0)  + mostrarElemento(hashElementosUbicacion, 2,0)  + " <hr /></fieldset></div></div> "
 %>
@@ -44,7 +44,7 @@
 		            <%= mostrarElemento(hashElementosUbicacion, 1,0)  %>
 	        	    <%= mostrarElemento(hashElementosUbicacion, 2,0)  %>
 		        <hr />
-			<input type="button" id="button" value="Mostrar Ventana" onClick='mostrarModal("<%=@contenido_modal%>", "notice")'/>
+			<input type="button" id="button" value="Mostrar Ventana" onClick='mostrarModal("<%=@contenido_modal%>")'/>
 	  </fieldset>
       </div>
 

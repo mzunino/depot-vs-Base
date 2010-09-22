@@ -13,5 +13,11 @@ class AppNoticiasController < ApplicationController
 
   end
 
+  # parametro: noticia_id
+  def mostrar_noticia
+	# muestra una noticia determinada
+ 	 render(:layout => false)
+  end
+	
 
 end
