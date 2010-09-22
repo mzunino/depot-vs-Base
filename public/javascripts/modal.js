@@ -44,7 +44,7 @@ function mostrarModal(url, nombreElemento){
 	http.onreadystatechange = function() {//Call a function when the state changes.
 		if(http.readyState == 4 && http.status == 200) {
 			
-			contenidoHTML = http.responseText;
+			divContenidoHTML = http.responseText;
 		}
 	}
 	http.send(null);
@@ -52,8 +52,6 @@ function mostrarModal(url, nombreElemento){
 
 
       	var contenidoHTML = divContenidoHTML + '<button onclick=\"closeModal()\">Cerrar</button>';
-
-	alert(contenidoHTML);
 
         var ancho = 600;
         var alto = 250;

@@ -1,25 +1,28 @@
 
 <%= link_to 'Inicio', :controller => 'principal' %><br />
 <hr />
-<div class="depot-form">
-  <fieldset>
-    <legend>Aplicaciones:</legend>
-
-	<div id="menu">
-
-        	<ul>
-		<% for elemento in @aplicaciones_profile 
-			logger.debug("Buscando app id: #{elemento.app_id}")
-			aplicacion = App.find(elemento.app_id)
-			texto_link = aplicacion.nombre
-			controller = aplicacion.controller
-			%>
-		       <li ><%= link_to texto_link, :controller => controller %></li>
-		<% end %>
-        	</ul>
+<% if !@aplicaciones_profile.nil? && @aplicaciones_profile.size() > 0 %>
+	<div class="depot-form">
+	  <fieldset>
+	    <legend>Aplicaciones:</legend>
+	
+		<div id="menu">
+	
+	        	<ul>
+			<% for elemento in @aplicaciones_profile 
+				logger.debug("Buscando app id: #{elemento.app_id}")
+				aplicacion = App.find(elemento.app_id)
+				texto_link = aplicacion.nombre
+				controller = aplicacion.controller
+				%>
+			       <li ><%= link_to texto_link, :controller => controller %></li>
+			<% end %>
+	        	</ul>
+		</div>
+	  </fieldset>
 	</div>
-  </fieldset>
-</div>
+<% end %>
+
 <hr />
 <% if @user %>
    <%= link_to 'Logout', :controller => :admin, :action => 'logout' %>
