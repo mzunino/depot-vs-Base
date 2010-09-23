@@ -15,41 +15,41 @@
            <%= image_tag("logo.png" ) %>
            <%= @page_title || "Virazón" %>
          </div>
-         <div id="columns">
-           <div id="side">
-	      
-	      <% @user = session[:user_id] 
+	           <div id="side">
+		      
+		      <% @user = session[:user_id] 
+	
+			if session[:user_id] 
+	                   @user=User.find(session[:user_id])
+	                   if @user
+	                        @nombre_usuario=@user.name
+			   end
+			end
+		      %>
+	
+		      <% if @nombre_usuario %>	
+			     <p>Usuario Logueado: <%= @nombre_usuario %></p>
+	 	      <% else %>
+			      <%= link_to 'Login', :controller => 'admin/login' %><br />	 	
+		      <% end %>
+	
+	<%#Se carga aplicación menú de usuario %>
+			<% @aplicaciones_profile = AppProfile.find_aplicaciones_del_perfil(@user.profile_id) %>
+			<%= render(:partial => "principal/menu_usuario", :object => @aplicaciones_profile)%>	
+	           
+		   </div>
 
-		if session[:user_id] 
-                   @user=User.find(session[:user_id])
-                   if @user
-                        @nombre_usuario=@user.name
-		   end
-		end
-	      %>
+	           <div id="div-main">
+		       <% if flash[:notice] -%>
+			  <div id="notice"><%#= flash[:notice] %></div>
+		       <% end -%>	
+	
+	<%# Se carga aplicación principal (index/noticias/admin/etc) %>
+	              <%= yield :layout %>
+	
+	           </div>
+		</div>
 
-	      <% if @nombre_usuario %>	
-		     <p>Usuario Logueado: <%= @nombre_usuario %></p>
- 	      <% else %>
-		      <%= link_to 'Login', :controller => 'admin/login' %><br />	 	
-	      <% end %>
-
-<!-- Se carga aplicación menú de usuario -->
-		<% @aplicaciones_profile = AppProfile.find_aplicaciones_del_perfil(@user.profile_id) %>
-		<%= render(:partial => "principal/menu_usuario", :object => @aplicaciones_profile)%>	
-           
-	   </div>
-           <div id="main">
-		<div id="notice">Ha ingresado al sistema como usuario de Virazón</div>
-	       <% if flash[:notice] -%>
-		  <div id="notice"><%= flash[:notice] %></div>
-	       <% end -%>	
-
-<!-- Se carga aplicación principal (index/noticias/admin/etc) -->
-              <%= yield :layout %>
-
-           </div>
-         </div>
        </body>
 </html>
 

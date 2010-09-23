@@ -147,7 +147,7 @@ h1 {
   border-radius: 5px;
   -moz-border-radius: 5px;
   width: 33em;
-  max-height: 10px;
+  max-height: 24em;
   padding: 5px;
   margin-bottom: 1em;
   margin-right: 1em;

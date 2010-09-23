@@ -8,39 +8,6 @@ body{
 
 }
 
-.overflow{
-        scrollbar-face-color: #996600;
-        scrollbar-3dlight-color: #000000;
-        scrollbar-arrow-color: #ffe2a9;
-        scrollbar-highlight-color: #ffe2a9;
-        scrollbar-shadow-color: #000000;
-        scrollbar-darkshadow-color: #996600;
-        scrollbar-track-color: #ffe2a9;
-        scrollbar-base-color: #000000 
-
-}
-
-.cuerpo_contenido { 
-	overflow: auto;
-
-  width: 500px;
-  height: 23.5em;
-	padding: 1px; 
-/*	width: 100%; 
-	height: 100%;
-	scroll: auto; 
-/*	border-style: solid; 
-	border-width: 1px; 
-	border-color:######; 
-	background-color:######; 
-	text-align: ######; 
-	letter-spacing: 1px; 
-	word-spacing: 2px; 
-	font-size: 12px; 
-	color:black; 
-	font-family: arial; */
-*/
-}
 
 #notice {
   border: 2px solid red;
@@ -54,43 +21,30 @@ body{
 
 
 #principal .contenido fieldset {
-  /* border: 2px solid blue; */
 
   float: left;
   border-radius: 5px;
   -moz-border-radius: 5px;
-  width: 300px;
-  height: 400px;
-  padding: 3px;
+  width: 33em;
+  height: 20em;
+  padding: 5px;
+  margin-bottom: 1em;
+  margin-right: 1em;
   border-color:#aaa; 
-/*  width: 430px;
-  height: 100px;
-  border-style: solid;
-  border-width: 1px;
-  border-color:######;
-  background-color:######;
-  text-align: ######;
-  letter-spacing: 1px;
-  word-spacing: 2px;
-  font-size: 12px;
-  color:black;
-  font-family: arial;*/
-  /* background: #141; */
-  /* padding: 5px; */ 
 }
-/*
+
 #principal .contenido img {
-  width: 75px;
+  width: 175px;
   float: left;
   padding: 5px;
   border: 0px;
   
-}*/
+}
 
 #principal .contenido legend {
   color: #dfd;
   background: #244;
-  font-family: sans-serif;
+/*  font-family: sans-serif; */
   padding: 0.2em 1em;
 }
 
@@ -98,12 +52,14 @@ body{
 
 
 h1 {
-        font:  150% sans-serif;
+        /* font:  150% sans-serif; */
+        font:  150% ; 
         color: #226;
 }
 
 #main h1  {
-        font:  150% sans-serif;
+        /* font:  150% sans-serif; */
+        font:  150% ; 
         color: #226;
         border-bottom: 3px dotted #77d;
 }
@@ -165,11 +121,12 @@ h1 {
 #banner {
   border-radius: 5px;
   -moz-border-radius: 5px;
-  background: #9c9;
+  background: #999;
   padding-top: 10px;
   padding-bottom: 10px;
   border-bottom: 2px solid;
-  font: small-caps 40px/40px "Times New Roman", serif;
+/*   font: small-caps 40px/40px "Times New Roman", serif; */
+  font: small-caps 40px/40px ; 
   color: #282;
   text-align: center;
   clear: both;
@@ -231,7 +188,7 @@ h1 {
 
 #principal  .title {
   font-size: 120%;
-  font-family: sans-serif;
+   /* font-family: sans-serif; */
 }
 
 #principal .entry img {
@@ -287,6 +244,7 @@ h1 {
 }
 /* END:cartmain */
 
+
 /* START:cartside */
 /* Styles for the cart in the sidebar */
 
@@ -308,13 +266,13 @@ h1 {
 /* Styles for order form */
 
 .depot-form fieldset {
-  background: #efe;
+  background: #000000;
 }
 
 .depot-form legend {
   color: #dfd;
   background: #141;
-  font-family: sans-serif;
+  /* font-family: sans-serif; */
   padding: 0.2em 1em;
 }
 
@@ -332,13 +290,59 @@ h1 {
 }
 
 .depot-form .submit {
-  margin-left: 4em;
+  margin-left: 1em;
+}
+
+.depot-form {
+  margin-left: 0.1em;
+  margin-right: 1em;
 }
 
 .depot-form div {
-  margin: 0.5em 0;
+  margin: 0.3em 0;
 }
 /* END:form */
+
+/* Login form */
+
+.login-form fieldset {
+  background: #efe;
+}
+
+.login-form legend {
+  color: #dfd;
+  background: #141;
+  /* font-family: sans-serif; */
+  padding: 0.2em 1em;
+}
+
+.login-form label {
+  width: 5em;
+  float: left;
+  text-align: right;
+  padding-top: 0.2em;
+  margin-right: 0.1em;
+  display: block;
+}
+
+.login-form select, .depot-form textarea, .depot-form input {
+  margin-left: 0.5em;
+}
+
+.login-form .submit {
+  margin-left: 1em;
+}
+
+.login-form {
+  margin-left: 0.1em;
+  margin-right: 1em;
+}
+
+.login-form div {
+  margin: 0.3em 0;
+}
+
+/* END: Login 
 
 /* The error box */
 
@@ -416,3 +420,57 @@ h1 {
         padding-right : 5px;
 }
 
+
+/*        V2        */
+.outer{
+	list-style:none;
+	margin:0px;
+	padding:0px;
+}
+
+menu {
+	width: 100%;
+	border-style: solid solid none solid;
+	/*border-color: #94AA74;*/
+	border-width: 1px;
+
+	}
+#menu ul{
+	list-style:none;
+	margin:0px;
+	padding:0px;
+	}
+	
+#menu li a {
+	height: 32px;
+  	voice-family: "\"}\""; 
+  	voice-family: inherit;
+  	height: 24px;
+	text-decoration: none;
+	font-weight:normal;
+	}	
+	
+#menu li a:link, #menu li a:visited {
+	color: #FFFFFF;
+	display: block;
+	background: url(/images/sin_seleccionar.jpg);
+	background-color: #000000;
+	background-repeat:no-repeat;
+	padding: 8px 0 0 50px;
+	}
+	
+#menu li a:hover {
+	color: #666666;
+	background: url(/images/menu_activo.jpg);
+	background-color: #000000;
+	background-repeat:no-repeat;
+	padding: 8px 0 0 50px;
+	}
+	
+#menu li a:active {
+	color: #666666;
+	background: url(/images/seleccionado.jpg) ;
+	background-repeat:no-repeat;
+	background-color: #000000;
+	padding: 8px 0 0 50px;
+	}

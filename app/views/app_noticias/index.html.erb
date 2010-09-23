@@ -4,7 +4,7 @@
 <!-- // @noticias: lista de contenidos correspondiente a las noticias a presentar -->
 <% for @noticia in @noticias -%>
     <!-- Utilizo el helper para mostrar la noticia actual -->
-    <%= mostrar_noticia(@noticia.id) %>
+    <%= mostrar_noticia(@noticia.id, @profile_id) %>
     
 <% end %>
 
