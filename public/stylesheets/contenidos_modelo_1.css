@@ -42,7 +42,7 @@ h1 {
 
 #tabla-principal{
   clear: both;
-  height: 100%;
+  height: 3000px;
   width: 100%;
 }
 
@@ -65,15 +65,15 @@ h1 {
 
 #main {
 
-/*  border-radius: 5px;
-  -moz-border-radius: 5px;*/
+  border-radius: 5px;
+  -moz-border-radius: 5px;
   margin-left: 0.1em;
   padding-top: 1em;
   padding-left: 1em;
   padding-bottom: 1em;
-  background-color:rgba(226,226,226,0.5);
-  width: 100%;
-  height: 100%;
+  background-color:rgba(226,226,226,0.2);
+  width: 98%;
+  height: 3000px;
 
 
 }
@@ -93,13 +93,13 @@ h1 {
 
 
 #side {
-/*  border-radius: 5px;
-  -moz-border-radius: 5px;*/
+  border-radius: 5px;
+  -moz-border-radius: 5px;
   padding-top: 1em;
   padding-left: 1em;
   padding-bottom: 1em;
   width: 12em;
-  height: 100%;
+  height: 3000px;
   background-color:rgba(141,0,0,0.5);
   float: left;
   margin-right: 3px;
@@ -132,7 +132,7 @@ h1 {
   text-align: center;
   height: 60px;
   margin-bottom: 3px;
-
+  font:  250% sans-serif;
 }
 
 #banner img {
@@ -140,18 +140,19 @@ h1 {
   padding-left: 10px;
 }
 
-
 #principal .contenido fieldset {
 
   float: left;
   border-radius: 5px;
   -moz-border-radius: 5px;
-  width: 33em;
-  max-height: 10px;
+  width: 98%;
+  height: auto;
+  max-height: auto;
   padding: 5px;
   margin-bottom: 1em;
   margin-right: 1em;
   border-color:#aaa;
+  background-color:rgba(282,282,282,0.5);
 }
 
 #principal .contenido img {

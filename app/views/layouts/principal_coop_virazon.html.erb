@@ -15,6 +15,9 @@
            <%= image_tag("logo.png" ) %>
            <%= @page_title || "Virazón" %>
          </div>
+	<table id="tabla-principal" border=0>
+	  <tr>
+	    <td id="td-menu">
 	           <div id="side">
 		      
 		      <% @user = session[:user_id] 
@@ -38,8 +41,9 @@
 			<%= render(:partial => "principal/menu_usuario", :object => @aplicaciones_profile)%>	
 	           
 		   </div>
-
-	           <div id="div-main">
+	     </td>
+	     <td id="td-main">
+	           <div id="main">
 		       <% if flash[:notice] -%>
 			  <div id="notice"><%#= flash[:notice] %></div>
 		       <% end -%>	
@@ -49,7 +53,9 @@
 	
 	           </div>
 		</div>
-
+	     </td>
+	  </tr>
+	</table>
        </body>
 </html>
 
