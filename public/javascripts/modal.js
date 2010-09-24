@@ -4,8 +4,8 @@ $(document).ready(function(){
         
         var contenidoHTML = '<h1>No hay contenido para mostrar</h1><%=@contenido_modal%><button onclick=\"closeModal()\">Cerrar</button>'
 
-        var ancho = 600;
-        var alto = 250;
+        var ancho = $(window).width() * 0.75;
+        var alto = $(window).height() * 0.75;
 
         $(window).resize(function(){
                 // dimensiones de la ventana del explorer

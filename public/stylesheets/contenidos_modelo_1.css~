@@ -78,6 +78,14 @@ h1 {
 
 }
 
+#marco_noticia {
+
+  padding-top: 1em;
+  padding-left: 1em;
+  padding-bottom: 1em;
+
+}
+
 #div-main {
 
  vertical-align: top;
@@ -132,16 +140,12 @@ h1 {
   text-align: center;
   height: 60px;
   margin-bottom: 3px;
-
+  font:  250% sans-serif;
 }
 
 #banner img {
   float: left;
   padding-left: 10px;
-}
-
-#banner text {
-  font:  250% sans-serif;
 }
 
 #principal .contenido fieldset {

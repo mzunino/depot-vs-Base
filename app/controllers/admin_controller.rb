@@ -9,6 +9,8 @@ class AdminController < ApplicationController
 		  	logger.error("Se encontro el usuario: #{user.name}")
 			logger.debug("Como se encontró el usuario se crea la session")
 			session[:user_id] = user.id
+			session[:profile_id] = user.profile_id
+
 			uri = session[:original_uri]
 			session[:original_uri] = nil
 			redirect_to(uri || { :controller => "app_noticias" })
@@ -17,7 +19,7 @@ class AdminController < ApplicationController
 		  end
 		end
 	else
-                    redirect_to( :controller => "principal" )
+                    redirect_to( :controller => "app_noticias" )
 		    flash.now[:notice] = "Ya se encuentra logueado en el sistema con el usuario: #{session[:user_id]}"
 
 	end
@@ -25,6 +27,7 @@ class AdminController < ApplicationController
 
   def logout
 	session[:user_id] = nil
+	session[:profile_id] = nil
 	flash[:notice] = "Ha salido del sistema<br />Para volver a ver sus preferencias debe ingresar nuevamente al sistema utilizando Login<br />Hasta la próxima!!!"
 	redirect_to(:controller => "principal")
   end

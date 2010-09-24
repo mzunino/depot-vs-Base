@@ -8,7 +8,6 @@ class Contenido < ActiveRecord::Base
 
         protected
 
-
         def self.contenido_disponible_al_perfil(contenido_id, profile_id)
 
 		if profile_id.nil?
