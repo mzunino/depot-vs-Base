@@ -37,14 +37,15 @@
 
   <div> 
 
-      <div class="contenido">
+      <div class="contenedor-noticia">
           <fieldset>
             <legend><%= @noticia.descripcion %></legend>
-		        <hr />
-		            <%= mostrarElemento(hashElementosUbicacion, 1,0)  %>
-	        	    <%= mostrarElemento(hashElementosUbicacion, 2,0)  %>
-		        <hr />
-
+            <div class="contenido-noticia">
+  		        <hr />
+  		            <%= mostrarElemento(hashElementosUbicacion, 1,0)  %>
+  	        	    <%= mostrarElemento(hashElementosUbicacion, 2,0)  %>
+  		        <hr />
+            </div>
 			<input type="button" id="button" value="Mostrar Ventana" onClick='mostrarModal("<%=@contenido_modal%>")'/> 
 	  </fieldset>
       </div>

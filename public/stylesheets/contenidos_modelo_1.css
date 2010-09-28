@@ -146,37 +146,40 @@ h1 {
   padding-left: 10px;
 }
 
-#principal .contenido fieldset {
 
+#principal .contenedor-noticia legend {
+  color: #dfd;
+  background: #244;
+/*  font-family: sans-serif; */
+  /*padding: 0.2em 1em;*/
+  width: 350px;
+}
+
+#principal .contenedor-noticia fieldset {
   float: left;
   border-radius: 5px;
   -moz-border-radius: 5px;
-  width: 98%;
-  height: auto;
-  max-height: auto;
+  width: 55%;
+  height: 20em;
   padding: 5px;
-  margin-bottom: 1em;
+  margin-bottom: 2em;
   margin-right: 1em;
   border-color:#aaa;
   background-color:rgba(282,282,282,0.5);
+  font:  80% sans-serif
 }
 
-#principal .contenido img {
+#principal .contenido-noticia img {
   width: 175px;
   float: left;
   padding: 5px;
   border: 0px;
-
 }
 
-#principal .contenido legend {
-  color: #dfd;
-  background: #244;
-/*  font-family: sans-serif; */
-  padding: 0.2em 1em;
+#principal .contenido-noticia {
+    margin-bottom: 2em;
+    margin-right: 1em;
 }
-
-
 /* START:form */
 /* Styles for order form */
 
