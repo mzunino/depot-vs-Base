@@ -37,15 +37,19 @@ classcanvas 141186 class_ref 136962 // TipoContenido
 end
 classcanvas 141698 class_ref 138114 // App
   draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_multiplicity default show_members_initialization default show_attribute_modifiers default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_relation_modifiers default show_infonote default shadow default show_stereotype_properties default
-  xyz 110 426 2000
+  xyz 110 440 2000
 end
 classcanvas 142338 class_ref 138242 // AppNoticiasController
   draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_multiplicity default show_members_initialization default show_attribute_modifiers default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_relation_modifiers default show_infonote default shadow default show_stereotype_properties default
-  xyz 78 635 2000
+  xyz 194 662 2000
 end
 classcanvas 144130 class_ref 138370 // AppCuentasController
   draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_multiplicity default show_members_initialization default show_attribute_modifiers default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_relation_modifiers default show_infonote default shadow default show_stereotype_properties default
-  xyz -1 576 2000
+  xyz 13 661 2000
+end
+classcanvas 144898 class_ref 139522 // Funcionalidad
+  draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_multiplicity default show_members_initialization default show_attribute_modifiers default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_relation_modifiers default show_infonote default shadow default show_stereotype_properties default
+  xyz 366 541 2000
 end
 relationcanvas 131970 relation_ref 129282 // <directional composition>
   decenter_begin 344
@@ -82,12 +86,12 @@ relationcanvas 141314 relation_ref 140418 // <directional composition>
 end
 relationcanvas 143362 relation_ref 142210 // <directional composition>
   decenter_begin 856
-  decenter_end 647
+  decenter_end 202
   from ref 128258 z 2001 to point 262 367
-  line 144514 z 2001 to point 262 493
+  line 144514 z 2001 to point 262 455
   line 144386 z 2001 to ref 141698
   no_role_a no_role_b
-  multiplicity_a_pos 194 503 3000 no_multiplicity_b
+  multiplicity_a_pos 194 465 3000 no_multiplicity_b
 end
 relationcanvas 143490 relation_ref 142338 // <composition>
   decenter_begin 632
@@ -103,17 +107,29 @@ relationcanvas 143746 relation_ref 142466 // <composition>
   line 143874 z 2001 to point 144 244
   line 144002 z 2001 to ref 141698
   no_role_a no_role_b
-  multiplicity_a_pos 131 404 3000 no_multiplicity_b
+  multiplicity_a_pos 131 418 3000 no_multiplicity_b
 end
 relationcanvas 144642 relation_ref 143746 // <generalisation>
-  from ref 144130 z 2001 to ref 141698
+  from ref 144130 z 2001 to point 80 599
+  line 145410 z 2001 to point 144 599
+  line 145282 z 2001 to ref 141698
   no_role_a no_role_b
   no_multiplicity_a no_multiplicity_b
 end
 relationcanvas 144770 relation_ref 143874 // <generalisation>
-  from ref 142338 z 2001 to ref 141698
+  from ref 142338 z 2001 to point 260 599
+  line 145154 z 2001 to point 144 599
+  line 145026 z 2001 to ref 141698
   no_role_a no_role_b
   no_multiplicity_a no_multiplicity_b
+end
+relationcanvas 145538 relation_ref 145026 // <composition>
+  decenter_begin 391
+  from ref 144898 z 2001 to point 226 580
+  line 145666 z 2001 to point 226 482
+  line 145794 z 2001 to ref 141698
+  no_role_a no_role_b
+  multiplicity_a_pos 194 492 3000 no_multiplicity_b
 end
 line 129666 -_-_
   from ref 129282 z 1999 to point 573 179

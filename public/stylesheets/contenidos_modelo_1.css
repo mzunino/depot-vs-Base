@@ -169,14 +169,14 @@ h1 {
   font:  80% sans-serif
 }
 
-#principal .contenido-noticia img {
+#principal .contenido-noticia-listado img {
   width: 175px;
   float: left;
   padding: 5px;
   border: 0px;
 }
 
-#principal .contenido-noticia {
+#principal .contenido-noticia-listado {
     margin-bottom: 2em;
     margin-right: 1em;
 }

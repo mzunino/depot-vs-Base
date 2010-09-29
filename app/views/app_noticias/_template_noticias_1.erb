@@ -29,15 +29,21 @@
 <!-- <a href="#" onclick="Effect.toggle('tag_<%=@noticia.id%>', 'appear'); return false;">tag_<%= @noticia.id %></a> -->
 
 
-<% @contenido_modal = "app_noticias/mostrar_noticia/#{@noticia.id}"
+<% @contenido_modal = "app_noticias/mostrar_noticia/#{@noticia.id}&2"
 
 #"<div><div class=\"contenido\"><fieldset><legend> " + @noticia.descripcion + "</legend><hr />" +  mostrarElemento(hashElementosUbicacion, 1,0)  + mostrarElemento(hashElementosUbicacion, 2,0)  + " <hr /></fieldset></div></div> "
 %>
-
+<% 
+ 	if (!@modo_listado.nil?)
+		style = "contenidor-noticia-listado" 
+	else
+		style = "contenedor-noticia"
+	end
+%>
 
   <div> 
 
-      <div class="contenedor-noticia">
+      <div class="<%=style%>">
           <fieldset>
             <legend><%= @noticia.descripcion %></legend>
             <div class="contenido-noticia">
@@ -46,7 +52,10 @@
   	        	    <%= mostrarElemento(hashElementosUbicacion, 2,0)  %>
   		        <hr />
             </div>
+		<% if (!@modo_listado.nil?) %>
 			<input type="button" id="button" value="Mostrar Ventana" onClick='mostrarModal("<%=@contenido_modal%>")'/> 
+		<% end %>
+			
 	  </fieldset>
       </div>
 

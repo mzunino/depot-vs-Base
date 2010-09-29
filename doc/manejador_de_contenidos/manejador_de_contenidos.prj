@@ -1,6 +1,6 @@
 format 66
 "manejador_de_contenidos"
-  revision 20
+  revision 21
   modified_by 2 "mauricio"
 
 
@@ -742,13 +742,8 @@ format 66
 	idl_decl ""
       end
 
-      attribute 145410 "nivel"
-	protected explicit_type ""
-	cpp_decl ""
-	java_decl ""
-	php_decl ""
-	python_decl ""
-	idl_decl ""
+      classrelation 146306 // <composition>
+	relation_ref 145026 // <composition>
       end
     end
 
@@ -817,6 +812,60 @@ format 66
 	  a public
 	    classrelation_ref 144898 // <generalisation>
 	  b parent class_ref 138114 // App
+      end
+    end
+
+    class 139522 "Funcionalidad"
+      visibility package 
+      cpp_decl ""
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      
+      attribute 146562 "nivel"
+	protected explicit_type ""
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+      end
+
+      attribute 146690 "app_id"
+	protected explicit_type ""
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+      end
+
+      attribute 146818 "descripcion"
+	protected explicit_type ""
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+      end
+
+      attribute 146946 "metodo_controller"
+	protected explicit_type ""
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+      end
+
+      classrelation 146178 // <composition>
+	relation 145026 *---
+	  a role_name "" multiplicity "1" protected
+	    classrelation_ref 146178 // <composition>
+	  b role_name "" protected
+	    classrelation_ref 146306 // <composition>
       end
     end
   end

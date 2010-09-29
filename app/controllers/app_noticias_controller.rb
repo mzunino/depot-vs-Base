@@ -11,11 +11,13 @@ class AppNoticiasController < ApplicationController
 
 	logger.debug("Entre al controler del index, user: #{@profile_id}")
 
+	@modo_listado = true;
   end
 
   def mostrar_noticia
 	# muestra una noticia determinada
- 	 render(:layout => false)
+	render(:layout => false)
+	
   end
 
   def new
