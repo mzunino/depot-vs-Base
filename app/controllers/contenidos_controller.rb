@@ -37,15 +37,17 @@ class ContenidosController < ApplicationController
     @contenido = Contenido.find(params[:id])
   end
 
-  # GET /contenidos/1/admin
-  def admin_contenido
-	if(params[:id].nil?)
-		
-	else
-		# Esta intentando modificar un contenido
-		logger.debug("Modificando contenido id: " + params[:id])
-	        @contenido = Contenido.find(params[:id])
-	end
+  # GET /contenidos/admin
+  def admin
+#	logger.debug("Entro admin")
+#	if(params[:id].nil?)
+#		logger.debug("Id es null")		
+#	else
+#		logger.debug("Id tiene contenido")
+#		# Esta intentando modificar un contenido
+#		logger.debug("Modificando contenido id: " + params[:id])
+#	        @contenido = Contenido.find(params[:id])
+#	end
   end
 
   # POST /contenidos

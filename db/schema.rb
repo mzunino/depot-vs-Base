@@ -9,13 +9,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100921120350) do
+ActiveRecord::Schema.define(:version => 20101004183809) do
 
   create_table "app_profiles", :force => true do |t|
     t.integer  "app_id"
     t.integer  "profile_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "action"
   end
 
   create_table "apps", :force => true do |t|
@@ -59,7 +60,7 @@ ActiveRecord::Schema.define(:version => 20100921120350) do
 
   create_table "elementos", :force => true do |t|
     t.integer  "contenido_id", :null => false
-    t.string   "valor"
+    t.text     "valor"
     t.integer  "tipo_id",      :null => false
     t.integer  "ubicacion"
     t.datetime "created_at"

@@ -57,7 +57,9 @@ function mostrarModal(url){
 
 function mostrarContenido(contenido){
 
-	var contenidoHTML = contenido + '<button onclick=\"closeModal()\">Cerrar</button>';
+	
+
+	var contenidoHTML = '<div><button class="btn_cerrar_modal" onclick=\"closeModal()\">X</button></div>' + contenido;
 
         var ancho = 600;
         var alto = 250;

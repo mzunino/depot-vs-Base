@@ -4,7 +4,7 @@
 
 body{
 
- font-family: sans-serif;
+ font-family: smaller sans-serif;
  background: url(/images/cope_vira_1.jpg); 
 
 }
@@ -17,7 +17,7 @@ body{
 #notice {
   border: 2px solid red;
   border-radius: 5px;
-  -moz-border-radius: 5px;
+  -moz-border-radius: 5px;  font:  small sans-serif
   padding: 1em;
   margin-bottom: 2em;
   margin-right: 1em;
@@ -138,7 +138,7 @@ h1 {
   text-align: center;
   height: 60px;
   margin-bottom: 3px;
-  font:  250% sans-serif;
+  font: 250% sans-serif;
 }
 
 #banner img {
@@ -159,27 +159,69 @@ h1 {
   float: left;
   border-radius: 5px;
   -moz-border-radius: 5px;
-  width: 55%;
-  height: 20em;
+  height: 400px;
   padding: 5px;
   margin-bottom: 2em;
   margin-right: 1em;
   border-color:#aaa;
   background-color:rgba(282,282,282,0.5);
-  font:  80% sans-serif
+  font:  small sans-serif
 }
 
-#principal .contenido-noticia img {
+#principal .contenedor-noticia img {
   width: 175px;
   float: left;
   padding: 5px;
   border: 0px;
 }
 
-#principal .contenido-noticia {
+#principal .contenedor-noticia-listado img {
+  width: 175px;
+  float: left;
+  padding: 5px;
+  border: 0px;
+}
+
+#principal .contenedor-noticia-listado fieldset {
+  float: left;
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  height: auto;
+  padding: 5px;
+  margin-bottom: 2em;
+  margin-right: 1em;
+  border-color:#aaa;
+  background-color:rgba(282,282,282,0.5);
+  font:  small sans-serif
+}
+
+#principal .contenedor-noticia-listado	 legend {
+  color: #dfd;
+  background: #244;
+  width: 350px;
+}
+
+#principal .contenedor-noticia-listado {
     margin-bottom: 2em;
     margin-right: 1em;
 }
+
+
+.btn_cerrar_modal{
+   float: right;
+   clear: both;
+   margin-top: 0.2em;
+   margin-right: 0.2em;
+   margin-left: 0.2em;
+   font-size:10px;
+   font-weight:bold;
+   color:#336666;
+   background-color:#FFFFFF;
+   border-style:solid;
+   border-color:#330000;
+   border-width:1px;
+}
+
 /* START:form */
 /* Styles for order form */
 
