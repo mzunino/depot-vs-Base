@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101004183809) do
+ActiveRecord::Schema.define(:version => 20101005114138) do
 
   create_table "app_profiles", :force => true do |t|
     t.integer  "app_id"
@@ -63,6 +63,15 @@ ActiveRecord::Schema.define(:version => 20101004183809) do
     t.text     "valor"
     t.integer  "tipo_id",      :null => false
     t.integer  "ubicacion"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "func_apps", :force => true do |t|
+    t.integer  "app_id"
+    t.string   "nombre"
+    t.string   "action"
+    t.text     "descripcion"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
