@@ -59,7 +59,7 @@ function mostrarContenido(contenido){
 
 	
 
-	var contenidoHTML = '<div><button class="btn_cerrar_modal" onclick=\"closeModal()\">X</button></div>' + contenido;
+	var contenidoHTML = '<div id="div_botones_modal"><button class="btn_cerrar_modal" onclick=\"closeModal()\">X</button></div><div id="contenido_modal">' + contenido + "</div>";
 
         var ancho = 600;
         var alto = 250;

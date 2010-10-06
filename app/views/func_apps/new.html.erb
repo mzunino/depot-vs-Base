@@ -1,11 +1,11 @@
-<h1>New func_app</h1>
+<h1>Nueva funcionalidad aplicación</h1>
 
 <% form_for(@func_app) do |f| %>
   <%= f.error_messages %>
 
   <p>
     <%= f.label :app_id %><br />
-    <%= f.text_field :app_id %>
+    <%= f.collection_select :app_id, App.find(:all), :id, :nombre %>
   </p>
   <p>
     <%= f.label :nombre %><br />
