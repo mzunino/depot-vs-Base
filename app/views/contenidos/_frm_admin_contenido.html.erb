@@ -1,0 +1,48 @@
+<p>
+	<%= label @form, :fecha_inicio , "Fecha inicio emisión:" %>
+    <%= @form.text_field :name, :size => 15 %>
+</p>
+<p>
+	<%= label @form, :fecha_inicio , "Fecha inicio emisión:" %>
+    <%= @form.text_field :name, :size => 15 %>
+    <label >Fecha fin emisión:</label><br/>
+</p>
+<p>
+	<%= label @form, :fecha_inicio , "Fecha inicio emisión:" %>
+    <%= @form.text_field :name, :size => 15 %>
+
+    <label >Título / Descripción:</label><br/>
+</p>
+
+<hr />
+
+<p>
+	<%= label @form, :tipo_contenido , "Seleccionar template para el contenido:" %>
+	<div id="lista_templates">
+		 <% return render (:partial => "template_noticias_1") %>
+	</div>
+</p>
+
+<hr />
+
+<p>
+    <label >Carga de elementos:</label><br/>
+</p>
+
+<p>
+    <label >Tipo:</label><br/>
+</p>
+<p>
+    <label >Ubicación:</label><br/>
+</p>
+<p>
+    <label >Valor:</label><br/>
+</p>
+
+<hr />
+<p>
+    <label >Selección de perfiles para los que estará disponible:</label><br/>
+</p>
+
+
+

@@ -7,22 +7,27 @@ class AppNoticiasController < ApplicationController
                     @profile_id = @user.profile_id
               end 
         end
-	@noticias = Contenido.find_noticias_del_perfil(@profile_id)
-
-	logger.debug("Entre al controler del index, user: #{@profile_id}")
-
-	@modo_listado = true;
+  	@noticias = Contenido.find_noticias_del_perfil(@profile_id)
+  
+  	logger.debug("Entre al controler del index, user: #{@profile_id}")
+  
+  	@modo_listado = true;
   end
 
   def mostrar_noticia
-	# muestra una noticia determinada
-	render(:layout => false)
+  	# muestra una noticia determinada
+  	render(:layout => false)
 	
   end
 
   def new
 	# Alta de una nueva noticia
 
-  end	
+  end
 
+  def admin_noticia
+    # Administrador de contenidos
+        
+    
+  end
 end

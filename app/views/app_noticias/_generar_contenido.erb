@@ -18,7 +18,12 @@
 
               ### Debo pasar la lista de elementos encontrados al render del contenido para que muestre el mismo
 
-              return render (:partial => render_noticia , :object => @elementos )
+			  cargar_elementos_renderizados(@elementos)
+
+			  logger.debug("Contenido de hash elementos renderizados #{@hash_elementos_renderizados.size}")
+
+
+              return render (:partial => render_noticia , :object => @hash_elementos_renderizados )
 
         else
               flash[:notice] = "No tiene privilegios para ver la noticia"

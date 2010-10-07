@@ -1,0 +1,16 @@
+<h3>Administración de noticias</h3>
+
+<% form_for :contenido, :url => { :controller => "contenidos", :action => :save } do |@form| %>
+
+		<% 
+				# Incluyo el formulario para la creación y mantenimiento de contenidos de tipo noticias 
+		%>
+		
+		<%= render(:partial => "contenidos/frm_admin_contenido", :object => @form)%>
+		<%= submit_tag %>
+
+<% end %>
+
+
+
+
