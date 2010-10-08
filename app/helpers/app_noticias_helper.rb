@@ -5,14 +5,12 @@ module AppNoticiasHelper
         # Parametros: hash, ubicacion, elemento_dentro de la ubicación
         # Devuelve: un string con el elemento dibujado 
         def mostrarElemento(hash, ubicacion, elemento_vector)
-          
-            html_generado = "<div class=\"div_template_#{ubicacion}\"> "
+
+            html_generado = ""
             
             if !hash.nil? && !hash[ubicacion].nil? && !hash[ubicacion][elemento_vector].nil?
                             html_generado += hash[ubicacion][elemento_vector]
             end
-          
-            html_generado += "</div>"
           
             return html_generado
         end

@@ -1,0 +1,52 @@
+#contenedor_template{
+	width:93%;
+	overflow: auto;
+	border-style:solid;
+	border-width:1px;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    margin-bottom: 2em;
+    margin-right: 10em;
+    border-color: #aaa;
+    background-color: rgba(282, 282, 282, 0.7);
+    font: small sans-serif
+    padding: 5px;
+}
+
+#contenedor_template div{
+	border-style:solid;
+	border-width:1px;
+}
+
+#contenedor_template img{
+	width:auto;
+	height:auto;
+    max-width: 100%;
+	min-width:50%;
+
+	
+}
+	
+
+#titulo-noticia{
+	clear:both;	
+}
+
+#div_template_1 {
+    float:left;
+	width:auto;
+	height:auto;
+    max-width: 20%;
+	padding: 1em;
+	min-width:20%;
+	min-height:50%;
+    
+	
+}
+
+#div_template_2 {
+		padding: 1em;
+		min-width:20%;
+		min-height:50%;
+
+}
