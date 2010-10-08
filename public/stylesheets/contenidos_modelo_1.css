@@ -351,7 +351,32 @@ font: 250% sans-serif;
         background-color: #999999;
     }
 
+/*** Inicio Administracion de contenidos ***/
 
+.contenedor_tipos_contenidos {
+	float:left;
+	clear:both;
+	width:auto;
+	max-width:600px;
+	height:100px;
+	overflow-x:scroll;
+	 
+}
+
+.tipo_contenido_muestra {
+	float:left;
+	margin-right:3em;
+	max-width:auto;
+	max-height:100px;
+}
+
+.desc_tipo_contenido_muestra{
+	float:left;
+	width:5em;
+	height:auto;
+	margin-right:3em;
+}
+/*** Fin de pantalla de administracion de contenidos ***/
 
    
 

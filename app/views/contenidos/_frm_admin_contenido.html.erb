@@ -1,26 +1,27 @@
 <p>
-	<%= label @form, :fecha_inicio , "Fecha inicio emisión:" %>
-    <%= @form.text_field :name, :size => 15 %>
+	<%= label @form, :titulo , "Título / Descripción:" %>
+    <%= @form.text_field :titulo, :size => 15 %>
 </p>
 <p>
-	<%= label @form, :fecha_inicio , "Fecha inicio emisión:" %>
-    <%= @form.text_field :name, :size => 15 %>
-    <label >Fecha fin emisión:</label><br/>
+	<%= label @form, :fecha_ingreso , "Fecha del contenido:" %>
+    <%= @form.text_field :fecha_ingreso, :size => 15 %>
 </p>
-<p>
-	<%= label @form, :fecha_inicio , "Fecha inicio emisión:" %>
-    <%= @form.text_field :name, :size => 15 %>
-
-    <label >Título / Descripción:</label><br/>
-</p>
-
 <hr />
-
 <p>
-	<%= label @form, :tipo_contenido , "Seleccionar template para el contenido:" %>
-	<div id="lista_templates">
-		 <% return render (:partial => "template_noticias_1") %>
-	</div>
+	<%= label @form, :fecha_inicio , "Fecha inicio emisión:" %>
+    <%= @form.text_field :fecha_inicio, :size => 14 %>
+</p>
+<p>
+	<%= label @form, :fecha_fin , "Fecha fin de emisión:" %>
+    <%= @form.text_field :fecha_fin, :size => 14 %>
+</p>
+<hr />
+<p>
+		<%= @form.hidden_field :tipo_contenido %> 
+		<%= label @form, :tipo_contenido , "Seleccionar template para el contenido:" %>
+		
+		 <%= H_app_not_mostrar_templates_disponibles() %>
+	
 </p>
 
 <hr />
@@ -43,6 +44,8 @@
 <p>
     <label >Selección de perfiles para los que estará disponible:</label><br/>
 </p>
+
+
 
 
 

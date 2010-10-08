@@ -3,32 +3,53 @@
 
 <%
 	es_modal = @modo_listado.nil?   
+	es_modalidad_muestra = !@modo_muestra_template.nil?
+
+	if ( es_modalidad_muestra ) 
+			div_modalidad = "div_modalidad_muestra"	
+	else
+			if ( es_modal )
+					div_modalidad = "div_modalidad_modal"
+			else
+					div_modalidad = "div_modalidad_normal"				
+			end
+	end 
+
 %>
 
+<div id="<%=div_modalidad %>"  >
 
-<div id="contenedor_template">
-        <div id="titulo-noticia">
-        		<% if !@noticia.nil? %>
-                	<%= @noticia.descripcion %>
-				<% end %>
-        </div>
-		<br />
-        <hr />
-		
-        <div id="div_template_1">
-            <%= mostrarElemento(@hash_elementos_renderizados, 1,0) %>
-        </div>
-        <div id="div_template_2">
-            <%= mostrarElemento(@hash_elementos_renderizados, 2,0) %>
-        </div>
-		
-        <hr />
-
-		<% if(!es_modal) %>
-            <input type="button" id="button" value="Mostrar Ventana" onClick='mostrarModal("<%=@contenido_modal%>")'/>
-        
+   		<% if ( !es_modalidad_muestra ) %>
+		        <div id="titulo-noticia">
+		        		<% if !@noticia.nil? %>
+		                	<%= @noticia.descripcion %>
+									<% if(!es_modal) %>
+									            <input type="button" id="button" value="Mostrar Ventana" onClick='mostrarModal("<%=@contenido_modal%>")'/>
+									<% end %>
+						<% end %>
+		        </div>
+		        <hr />
 		<% end %>
 
+        <div id="div_template_1">
+
+        		<% if ( !es_modalidad_muestra ) %> 
+            			<%= mostrarElemento(@hash_elementos_renderizados, 1,0) %>
+				<% end %>
+
+        </div>
+        <div id="div_template_2">
+
+            	<% if ( !es_modalidad_muestra ) %> 
+            			<%= mostrarElemento(@hash_elementos_renderizados, 2,0) %>
+				<% end %>
+
+        </div>
+		
+  		<% if ( !es_modalidad_muestra ) %>
+				<hr />
+   		<% end  %>
+		
 </div>
 
 
