@@ -1,5 +1,7 @@
 /** Inicio de tipo muestra de template para selección **/
+/*
 #div_modalidad_muestra{
+	float:left;
 	width:4em;
 	height:4em;
 	margin-bottom: 2em;
@@ -12,7 +14,7 @@
 	border-color: #000;
 	width:100%;
 	height:100%;
-}
+}*/
 
 /** Fin de tipo muestra de template para selección **/
 
@@ -50,7 +52,7 @@
 
 /** Fin de modalidad normal de muestreo de contenido **/
 
-/** Inicio de ventana Modal  **/
+/** Inicio de ventana Modal  * */
 
 #div_modalidad_modal{
 	width:98%;

@@ -25,17 +25,29 @@ module AppNoticiasHelper
         
         @modo_muestra_template = true
         
-        html_generado = "<div class='contenedor_tipos_contenidos'> "
+        html_generado = "<div id='contenedor_tipos_contenidos'> "
+        html_generado = "<table border=1 class='tabla_tipos_contenidos' > "
+        
+        tr_templates = "<tr valign=\"top\">"
         for tipo in tipos_disponibles
-                    html_generado += "<div class='desc_tipo_contenido_muestra'> "
-                    html_generado += tipo.descripcion
-                    html_generado += "</div> "
-                    html_generado += "<div class='tipo_contenido_muestra'> "
-                    html_generado += render (:partial => tipo.template )
-                    html_generado += "</div> "
+                    
+                    tr_templates += "<td align=\"right\">"
+                      tr_templates += tipo.descripcion
+                    tr_templates += "</td>"
+                    
+                    tr_templates += "<td > "
+                      tr_templates += render (:partial => tipo.template )
+                    tr_templates += "</td>"
+                    
         end   
         
-        html_generado += "</div>"
+        tr_templates += "</tr>"
+
+        
+        html_generado += tr_templates
+        
+        
+        html_generado += "</table> </div>&nbsp" 
         
         return html_generado
           
