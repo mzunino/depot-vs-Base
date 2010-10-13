@@ -30,4 +30,9 @@ class AppNoticiasController < ApplicationController
         
     
   end
+  
+  def ejemplo_ajax
+        return "Hola" 
+  end
+  
 end

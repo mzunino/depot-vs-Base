@@ -353,28 +353,18 @@ font: 250% sans-serif;
 
 /*** Inicio Administracion de contenidos ***/
 
-#contenedor_tipos_contenidos{
-	overflow: auto; 
-	padding: 1em;
-	max-width:100%;
-	border-style:solid;
-	border-width:1px;
-}
 
+
+/*
 .tabla_tipos_contenidos {
 	float:left;
-	width:2000px	;
-	height:4em;
 	border-style:solid;
 	border-width:1px; 
 	
 }
 
-.tabla_tipos_contenidos tr{
-	width:300px;
-	background-color:#ff0000;
+*/
 
-}
 
 .tipo_contenido_muestra {
 	float:left;

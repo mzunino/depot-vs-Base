@@ -17,13 +17,18 @@
 </p>
 <hr />
 <p>
-		<%= @form.hidden_field :tipo_contenido %> 
-		<%= label @form, :tipo_contenido , "Seleccionar template para el contenido:" %>
-		
-		 <%= H_app_not_mostrar_templates_disponibles() %>
+	
+<%= collection_select ( nil, :template_id,
+					TipoContenido.find(:all), :id, :descripcion,
+				 
+					{:prompt => "Seleccione un template"}, 
+					{:onchange => "#{remote_function(:url => {:controller => 'app_noticias', :action => "ejemplo_ajax"}, 
+					:with => "'template_id='+value")}"}) 
+%> 
 	
 </p>
-
+		
+<div id="contenedor_tipo_template"><div id="ejemplo_tipo_template"></div></div>
 <hr />
 
 <p>
