@@ -1,4 +1,4 @@
-
+ 
 /** Para la ventana modal **/
 
 $(document).ready(function(){
@@ -174,6 +174,11 @@ function createAjax()
 
 function mostrarFuncionalidad ( componente) {
 	$("#" + componente).toggle("normal"); 
+  	
+}
+
+function remplazarComponente ( componente, contenido) {
+	$("#" + componente).replace(contenido)
   	
 }
 

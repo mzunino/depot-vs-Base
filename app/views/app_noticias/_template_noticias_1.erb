@@ -1,4 +1,4 @@
-
+<% # Agrego tag para que se muestre el estilo asociado al formato de template %>
 <%= stylesheet_link_tag "template_noticias_1" %>
 
 <%
@@ -35,7 +35,8 @@
 
         		<% if ( !es_modalidad_muestra ) %> 
             			<%= mostrarElemento(@hash_elementos_renderizados, 1,0) %>
-				<% end %>
+	
+					<% end %>
 
         </div>
         <div id="div_template_2">

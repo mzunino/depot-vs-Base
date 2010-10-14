@@ -15,39 +15,56 @@
 	<%= label @form, :fecha_fin , "Fecha fin de emisión:" %>
     <%= @form.text_field :fecha_fin, :size => 14 %>
 </p>
+<p>
+
+<%= label @form, :app_id , "Seleccione la aplicación a la que pertenece :" %>
+<%= collection_select ( nil, :app_id, App.find(:all), :id, :nombre) %>
+	
+</p>
+
 <hr />
 <p>
-	
-<%= collection_select ( nil, :template_id,
+
+<%= label @form, :template_id , "Seleccione un Template :" %>
+<%= collection_select ( nil, :template_id, TipoContenido.find(:all), :id, :descripcion) %>
+
+<%#= collection_select ( nil, :template_id,
 					TipoContenido.find(:all), :id, :descripcion,
-				 
 					{:prompt => "Seleccione un template"}, 
 					{:onchange => "#{remote_function(:url => {:controller => 'app_noticias', :action => "ejemplo_ajax"}, 
 					:with => "'template_id='+value")}"}) 
-%> 
+%>  
 	
 </p>
 		
-<div id="contenedor_tipo_template"><div id="ejemplo_tipo_template"></div></div>
+
 <hr />
 
 <p>
     <label >Carga de elementos:</label><br/>
+	Aca deben cargarse la cantidad de elementos que se deseen
 </p>
 
 <p>
-    <label >Tipo:</label><br/>
+		<%= label @form, :tipo_elemento_id , "Seleccione un Tipo de elemento :" %>
+		<%= collection_select ( nil, :tipo_elemento_id, TipoElemento.find(:all), :id, :descripcion) %>
 </p>
 <p>
-    <label >Ubicación:</label><br/>
+    <%= label @form, :ubicacion_elemento , "Ubicación elemento:" %>
+    <%= @form.text_field :ubicacion_elemento, :size => 2 %>
 </p>
 <p>
-    <label >Valor:</label><br/>
+    <%= label @form, :valor_elemento , "Valor elemento:" %>
+    <%= @form.text_area :valor_elemento %>
 </p>
 
 <hr />
 <p>
     <label >Selección de perfiles para los que estará disponible:</label><br/>
+	Aca se debe mostrar una lista de perfiles para los que el contenido estará dispobible
+
+	<%= collection_select ( nil, :profile_id, Profile.find(:all), :id, :descripcion) %>
+	
 </p>
 
 

@@ -1,6 +1,6 @@
 <h3>Administración de noticias</h3>
 
-<% form_for :contenido, :url => { :controller => "contenidos", :action => :save } do |@form| %>
+<% form_for :contenido, :url => { :controller => "app_noticias", :action => :save } do |@form| %>
 
 
 		<% 
@@ -9,7 +9,7 @@
 		
 		<%= render(:partial => "contenidos/frm_admin_contenido", :object => @form)%>
 		
-		<%= submit_tag %>
+		<%= submit_tag "Salvar" %>
 
 <% end %>
 
