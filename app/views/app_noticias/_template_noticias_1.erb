@@ -25,6 +25,17 @@
 		                	<%= @noticia.descripcion %>
 									<% if(!es_modal) %>
 									            <input type="button" id="button" value="Mostrar Ventana" onClick='mostrarModal("<%=@contenido_modal%>")'/>
+												<% #  %>
+														<%#= :contenido.hidden_field :id, @noticia.id  %>
+														<%#= submit_tag "edit" %>
+												<%# end %>
+												<% form_for :contenido, :url => { :controller => "app_noticias", :action => :edit } do |f| %>
+													  <p>
+													    <%= f.hidden_field :id, :value => @noticia.id %><br />
+													    <%= submit_tag "edit" %>
+													  </p>
+													<% end %>
+												
 									<% end %>
 						<% end %>
 		        </div>
