@@ -54,7 +54,13 @@ class AppNoticiasController < ApplicationController
       
       #@contenido.save!
       idContenido = @contenido.id
-      logger.debug("este es el contenido generado: #{params[:template_id]}")
+      logger.debug("contenido_id: #{@contenido.id}")
+      logger.debug("tipo_id: #{@contenido.tipo_id}")
+      str = params[:contenido]
+      logger.debug("descripcion: #{params[:contenido]}")
+      logger.debug("rotacion: #{str[1]}")
+      logger.debug("fecha: #{@contenido.fecha}")
+      logger.debug("app_id: #{@contenido.app_id}")
       
       
       # Seteo los ids necesarios recien obtenidos

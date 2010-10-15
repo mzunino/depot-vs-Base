@@ -18,7 +18,7 @@
 <p>
 
 <%= label @form, :app_id , "Seleccione la aplicación a la que pertenece :" %>
-<%= collection_select ( nil, :app_id, App.find(:all), :id, :nombre) %>
+<%= collection_select ( @form, :app_id, App.find(:all), :id, :nombre) %>
 	
 </p>
 
@@ -26,7 +26,7 @@
 <p>
 
 <%= label @form, :template_id , "Seleccione un Template :" %>
-<%= collection_select ( nil, :template_id, TipoContenido.find(:all), :id, :descripcion) %>
+<%= collection_select ( @form, :template_id, TipoContenido.find(:all), :id, :descripcion) %>
 
 <%#= collection_select ( nil, :template_id,
 					TipoContenido.find(:all), :id, :descripcion,
@@ -63,7 +63,7 @@
     <label >Selección de perfiles para los que estará disponible:</label><br/>
 	Aca se debe mostrar una lista de perfiles para los que el contenido estará dispobible
 
-	<%= collection_select ( nil, :profile_id, Profile.find(:all), :id, :descripcion) %>
+	<%= collection_select ( @form, :profile_id, Profile.find(:all), :id, :descripcion) %>
 	
 </p>
 
