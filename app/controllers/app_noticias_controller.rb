@@ -25,12 +25,8 @@ class AppNoticiasController < ApplicationController
 
   end
 
-  def new
-    # Administrador de contenidos
-        
-    
-  end
-  
+ 
+  # GET /apps/edit
   def edit
     
         #logger.debug("Se esta pasando el id: #{params[:contenido][:id]}"  )
@@ -39,13 +35,12 @@ class AppNoticiasController < ApplicationController
         
         #logger.debug("Este es el contenido id obtenido: #{@contenido.id}"  )
         
-        @lista_elementos = Elemento.find(:all, :conditions => "contenido_id = #{@contenido.id}")
+        @elementos = Elemento.find(:all, :conditions => "contenido_id = #{@contenido.id}")
         #logger.debug ("elemento id : #{@lista_elementos[1].id}")
         
         #@profiles_habilitados = ContenidoProfile.find(:all, :conditions => "contenido_id = #{@contenido.id}")
         
-        @elemento = @lista_elementos[1]
-        
+       
         #logger.debug("Contenido del form: #{@form}")
         
         
@@ -59,7 +54,12 @@ class AppNoticiasController < ApplicationController
     
   end
   
-  def save
+  def update
+    
+  end
+  
+    # GET /apps/save
+  def invento
     
     Contenido.transaction do
       
@@ -72,23 +72,28 @@ class AppNoticiasController < ApplicationController
       @contenido.app_id = params[:contenido][:app_id]
       
       
-      @elemento = Elemento.new()
-      @contenido.tipo_id = params[:contenido][:id_elemento]
-      @elemento.valor = params[:contenido][:valor]
-      @elemento.tipo_id = params[:contenido][:tipo_elemento_id]
-      @elemento.ubicacion = params[:contenido][:ubicacion]
+      @elementos = params[:elemento]
       
-      @contenido_profile = ContenidoProfile.new()
-      @contenido_profile.profile_id = params[:contenido][:profile_id]
       
-      @contenido.save!
       
+      logger.debug("############]]]]]]]]]]]]]]]]]]]############## esta lista de elementos pasada tiene #{@elementos.size()}")
+#      @contenido.tipo_id = params[:contenido][:id_elemento]
+#      @elemento.valor = params[:contenido][:valor]
+#      @elemento.tipo_id = params[:contenido][:tipo_elemento_id]
+#      @elemento.ubicacion = params[:contenido][:ubicacion]
+#      
+#      @contenido_profile = ContenidoProfile.new()
+#      @contenido_profile.profile_id = params[:contenido][:profile_id]
+      
+      #@contenido.save!
+      
+ 
       # Seteo los ids necesarios recien obtenidos
-      @elemento.contenido_id = @contenido.id
-      @contenido_profile.contenido_id = @contenido.id
+      #@elemento.contenido_id = @contenido.id
+      #@contenido_profile.contenido_id = @contenido.id
       
-      @elemento.save!
-      @contenido_profile.save!
+      #@elemento.save!
+      #@contenido_profile.save!
 
       redirect_to :controller => :app_noticias, :action => "index"
     end

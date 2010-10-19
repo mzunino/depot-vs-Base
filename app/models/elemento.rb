@@ -1,6 +1,6 @@
 class Elemento < ActiveRecord::Base
 
-	has_one :contenido
+	belongs_to :contenido
 	has_one :tipo_elemento
 
 end

@@ -1,58 +1,41 @@
-<p>
-	<%= label @form, :descripcion , "Título / Descripción:" %>
-    <%= @form.text_field :descripcion, :size => 15 %>
-</p>
-<p>
-	<%= label @form, :fecha , "Fecha del contenido:" %>
-    <%= @form.text_field :fecha, :size => 15 %>
-</p>
-<hr />
-<p>
-	<%= label @form, :fecha_inicio , "Fecha inicio emisión:" %>
-    <%= @form.text_field :fecha_inicio, :size => 14 %>
-</p>
-<p>
-	<%= label @form, :fecha_fin , "Fecha fin de emisión:" %>
-    <%= @form.text_field :fecha_fin, :size => 14 %>
-</p>
-<p>
-	<%= label @form, :rotacion , "Rotación:" %>
-    <%= @form.text_field :rotacion, :size => 2 %>
-</p>
-<p>
+<% @action = "save" %>
 
-<%= label @form, :app_id , "Seleccione la aplicación a la que pertenece :" %>
-<%= @form.collection_select  :app_id, App.find(:all), :id, :nombre %>
+<% form_for @contenido,  :url => { :action => 'save', :id => @contenido  } do |f| %>
+
+<p><%= f.label :id, 'Id de contenido:' %><br/>
+ <%= f.text_field :id %></p>
+
+
+<%= label_tag "Título / Descripción:" %>
+<%= f.text_field :descripcion, :size => 15 %>
+
+<%= label_tag "Seleccione un Template :" %>
+<%= f.collection_select  :tipo_id, TipoContenido.find(:all), :id, :descripcion %>
+
+<p>Mira que hay <%= @elementos.size() %> elementos en la lista!!</p>
+
+ <% @elementos.each do |elemento| -%>
+ 
+
+			<% fields_for "elemento[]", elemento do |subfield| %>
+			 
+			 		  <p><%= subfield.label :id, 'Id elemento:' %><br/>
+					  <%= subfield.text_field :id %></p>
+					
+					  <p><%= subfield.label :tipo_id, 'Tipo de elemento:' %><br/>
+					  <%= subfield.text_field :tipo_id %></p>
+
+			 <% end -%>
+
+			<hr />
+	<% end -%>
 	
-</p>
+<p><%= submit_tag 'save' %></p>
 
-<hr />
-<p>
-
-<%= label @form, :tipo_template_id , "Seleccione un Template :" %>
-<%= @form.collection_select  :tipo_id, TipoContenido.find(:all), :id, :descripcion %>
-
-<%#= collection_select ( nil, :template_id,
-					TipoContenido.find(:all), :id, :descripcion,
-					{:prompt => "Seleccione un template"}, 
-					{:onchange => "#{remote_function(:url => {:controller => 'app_noticias', :action => "ejemplo_ajax"}, 
-					:with => "'template_id='+value")}"}) 
-%>  
-	
-</p>
-		
+<% end -%>
 
 <hr />
 
-<p>
-    <label >Carga de elementos:</label><br/>
-	Aca deben cargarse la cantidad de elementos que se deseen
-</p>
-
-<p>
-		<%= label @form, :elemento_tipo_id , "Seleccione un Tipo de elemento :" %>
-		<%= @form.collection_select ( :tipo_id, TipoElemento.find(:all), :id, :descripcion) %>
-</p>
 
 
 

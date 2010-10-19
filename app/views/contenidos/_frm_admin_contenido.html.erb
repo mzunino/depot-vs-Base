@@ -1,10 +1,10 @@
 <p>
-	<%= label @form, :titulo , "Título / Descripción:" %>
-    <%= @form.text_field :titulo, :size => 15 %>
+	<%= label @form, :descripcion , "Título / Descripción:" %>
+    <%= @form.text_field :descripcion, :size => 15 %>
 </p>
 <p>
-	<%= label @form, :fecha_ingreso , "Fecha del contenido:" %>
-    <%= @form.text_field :fecha_ingreso, :size => 15 %>
+	<%= label @form, :fecha , "Fecha del contenido:" %>
+    <%= @form.text_field :fecha, :size => 15 %>
 </p>
 <hr />
 <p>
@@ -16,17 +16,21 @@
     <%= @form.text_field :fecha_fin, :size => 14 %>
 </p>
 <p>
+	<%= label @form, :rotacion , "Rotación:" %>
+    <%= @form.text_field :rotacion, :size => 2 %>
+</p>
+<p>
 
 <%= label @form, :app_id , "Seleccione la aplicación a la que pertenece :" %>
-<%= collection_select ( @form, :app_id, App.find(:all), :id, :nombre) %>
+<%= @form.collection_select  :app_id, App.find(:all), :id, :nombre %>
 	
 </p>
 
 <hr />
 <p>
 
-<%= label @form, :template_id , "Seleccione un Template :" %>
-<%= collection_select ( @form, :template_id, TipoContenido.find(:all), :id, :descripcion) %>
+<%= label @form, :tipo_template_id , "Seleccione un Template :" %>
+<%= @form.collection_select  :tipo_id, TipoContenido.find(:all), :id, :descripcion %>
 
 <%#= collection_select ( nil, :template_id,
 					TipoContenido.find(:all), :id, :descripcion,
@@ -46,25 +50,8 @@
 </p>
 
 <p>
-		<%= label @form, :tipo_elemento_id , "Seleccione un Tipo de elemento :" %>
-		<%= collection_select ( nil, :tipo_elemento_id, TipoElemento.find(:all), :id, :descripcion) %>
-</p>
-<p>
-    <%= label @form, :ubicacion_elemento , "Ubicación elemento:" %>
-    <%= @form.text_field :ubicacion_elemento, :size => 2 %>
-</p>
-<p>
-    <%= label @form, :valor_elemento , "Valor elemento:" %>
-    <%= @form.text_area :valor_elemento %>
-</p>
-
-<hr />
-<p>
-    <label >Selección de perfiles para los que estará disponible:</label><br/>
-	Aca se debe mostrar una lista de perfiles para los que el contenido estará dispobible
-
-	<%= collection_select ( @form, :profile_id, Profile.find(:all), :id, :descripcion) %>
-	
+		<%= label @form, :elemento_tipo_id , "Seleccione un Tipo de elemento :" %>
+		<%= @form.collection_select ( :tipo_id, TipoElemento.find(:all), :id, :descripcion) %>
 </p>
 
 

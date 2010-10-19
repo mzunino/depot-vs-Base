@@ -1,5 +1,5 @@
 
-<% form_for :contenido, :url => { :controller => "app_noticias", :action => :save } do |@form| %>
+<%# form_for :contenido, :url => { :controller => "app_noticias", :action => :save } do |@form| %>
 
 
 		<% 
@@ -8,11 +8,11 @@
 		%>
 		<h3>Edicion de noticia</h3>
 				
-		<%= render(:partial => "contenidos/frm_edicion_contenido", :object => @form)%>
+		<%= render(:partial => "contenidos/frm_edicion_contenido")%>
 		
-		<%= submit_tag "Salvar" %>
+		<%#= submit_tag "Salvar" %>
 
-<% end %>
+<%# end %>
 
 
 

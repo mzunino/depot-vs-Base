@@ -2,7 +2,6 @@ class AppProfile < ActiveRecord::Base
 
 
 
-
         def self.find_aplicaciones_del_perfil(profile_id)
 
                 if profile_id.nil?
