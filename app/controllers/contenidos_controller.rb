@@ -42,7 +42,9 @@ class ContenidosController < ApplicationController
 
   end
 
-  # POST /contenidos
+public 
+
+# POST /contenidos
   # POST /contenidos.xml
   def create
     @contenido = Contenido.new(params[:contenido])
@@ -87,4 +89,6 @@ class ContenidosController < ApplicationController
       format.xml  { head :ok }
     end
   end
+  
+  
 end

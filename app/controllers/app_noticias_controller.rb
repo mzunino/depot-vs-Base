@@ -54,38 +54,56 @@ class AppNoticiasController < ApplicationController
     
   end
   
-  def update
-    
-  end
-  
-    # GET /apps/save
-  def invento
+ 
+    # GET /app_noticias/save
+  def save_contenido
     
     Contenido.transaction do
       
-      @contenido = Contenido.new()
-      @contenido.tipo_id = params[:contenido][:id]
-      @contenido.tipo_id = params[:contenido][:template_id] 
-      @contenido.descripcion = params[:contenido][:descripcion]
-      @contenido.rotacion = params[:contenido][:rotacion]
-      @contenido.fecha = params[:contenido][:fecha_ingreso]
-      @contenido.app_id = params[:contenido][:app_id]
+      if(!params[:contenido].nil? && !params[:contenido][:id].nil? &&  !params[:contenido][:id] == "" )
+              @contenido = Contenido.find(params[:contenido][:id])
+        
+              if @contenido.update_attributes(params[:contenido])
+                flash[:notice] = 'El contenido se actualizo correctamente'
+              else
+                flash[:notice] = 'Ocurrió un error al actualizar el contenido: ' + @contenido.errors
+              end
+      else
+            @contenido = Contenido.new(params[:contenido])
+
+            if @contenido.save
+                    flash[:notice] = 'El contenido fue creado correctamente'
+            else
+                    flash[:notice] = 'Ocurrió un error al crear el contenido: ' + @contenido.errors
+            end
+
+       end
+#      @contenido = Contenido.new()
+#      @contenido.id = params[:contenido][:id]
+#      @contenido.tipo_id = params[:contenido][:template_id] 
+#      @contenido.descripcion = params[:contenido][:descripcion]
+#      @contenido.rotacion = params[:contenido][:rotacion]
+#      @contenido.fecha = params[:contenido][:fecha_ingreso]
+#      @contenido.app_id = params[:contenido][:app_id]
       
-      
-      @elementos = params[:elemento]
-      
-      
-      
-      logger.debug("############]]]]]]]]]]]]]]]]]]]############## esta lista de elementos pasada tiene #{@elementos.size()}")
-#      @contenido.tipo_id = params[:contenido][:id_elemento]
-#      @elemento.valor = params[:contenido][:valor]
-#      @elemento.tipo_id = params[:contenido][:tipo_elemento_id]
-#      @elemento.ubicacion = params[:contenido][:ubicacion]
+#      @contenido.update_attributes(params[:contenido])
+#
 #      
+#      # Salvando los elementos del contenido
+#      @elementos = params[:elemento]
+#      if (!@elementos.nil? && @elementos.size() > 0 )
+#          
+#            for elemento in @elementos
+#                  elemento.contenido_id = @contenido.id
+#                  elemento.save!
+#            end
+#
+#      end 
+      
 #      @contenido_profile = ContenidoProfile.new()
 #      @contenido_profile.profile_id = params[:contenido][:profile_id]
       
-      #@contenido.save!
+
       
  
       # Seteo los ids necesarios recien obtenidos

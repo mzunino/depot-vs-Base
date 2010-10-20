@@ -1,6 +1,6 @@
-<% @action = "save" %>
 
-<% form_for @contenido,  :url => { :action => 'save', :id => @contenido  } do |f| %>
+<% form_for :contenido, :url => { :controller => "app_noticias", :action => :save_contenido } do |f| %>
+
 
 <p><%= f.label :id, 'Id de contenido:' %><br/>
  <%= f.text_field :id %></p>
@@ -11,6 +11,10 @@
 
 <%= label_tag "Seleccione un Template :" %>
 <%= f.collection_select  :tipo_id, TipoContenido.find(:all), :id, :descripcion %>
+
+<%= label_tag  "Seleccione la aplicación a la que pertenece :" %>
+<%= f.collection_select  :app_id, App.find(:all), :id, :nombre %>
+	
 
 <p>Mira que hay <%= @elementos.size() %> elementos en la lista!!</p>
 
