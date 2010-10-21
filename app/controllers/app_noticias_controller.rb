@@ -38,6 +38,10 @@ class AppNoticiasController < ApplicationController
         @elementos = Elemento.find(:all, :conditions => "contenido_id = #{@contenido.id}")
         #logger.debug ("elemento id : #{@lista_elementos[1].id}")
         
+        
+        logger.debug("----------------------------------------------------------------Consultando profiles!!!!!! ")
+        @profiles = ContenidoProfile.find(:all, :conditions => "contenido_id = #{params[:contenido][:id]}")
+        logger.debug("Contenido de profiles!!!!!!:  #{@profiles.size()} ")
         #@profiles_habilitados = ContenidoProfile.find(:all, :conditions => "contenido_id = #{@contenido.id}")
         
        
@@ -71,11 +75,11 @@ class AppNoticiasController < ApplicationController
       else
             @contenido = Contenido.new(params[:contenido])
 
-            if @contenido.save
-                    flash[:notice] = 'El contenido fue creado correctamente'
-            else
-                    flash[:notice] = 'Ocurrió un error al crear el contenido: ' + @contenido.errors
-            end
+#            if @contenido.save
+#                    flash[:notice] = 'El contenido fue creado correctamente'
+#            else
+#                    flash[:notice] = 'Ocurrió un error al crear el contenido: ' + @contenido.errors
+#            end
 
        end
 #      @contenido = Contenido.new()
@@ -100,18 +104,48 @@ class AppNoticiasController < ApplicationController
 #
 #      end 
       
+      logger.debug(" ELEMENTOS !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! #{params[:elemento]}")
+#      logger.debug("Se guarda el contenido id: #{@contenido.id} y el profile_id: #{}")
 #      @contenido_profile = ContenidoProfile.new()
+#      @contenido_profile.contenido_id = @contenido.id
 #      @contenido_profile.profile_id = params[:contenido][:profile_id]
-      
+#      @contenido_profile.save!
 
       
- 
+       # Salvando los elementos del contenido
+
+      @profiles = params[:profile]
+      if (!@profiles.nil? && @profiles.size() > 0 )
+          
+            for profile in @profiles
+              
+                logger.debug("Consultando contenido id: #{params[:contenido][:id]} y profile = #{profile[0]} ")
+              
+                  asignaciones = ContenidoProfile.find(:all, :conditions => "contenido_id = #{params[:contenido][:id]} and profile_id = #{profile[0]}")
+                  
+                  logger.debug("Con contenido id: #{params[:contenido][:id]} se encontraron #{asignaciones.size()} asociaciones")
+                  if(asignaciones && asignaciones.size()>0)
+                        # Ya existe por lo tanto no se guarda nada
+                  else
+                        contenido_profile = ContenidoProfile.new()
+                        contenido_profile.profile_id = profile[0]
+                        contenido_profile.contenido_id = params[:contenido][:id]
+                        
+                        contenido_profile.save!
+                        end
+                  
+
+            end
+    else
+      logger.debug("Profiles es nulo ")
+      end 
+      
       # Seteo los ids necesarios recien obtenidos
       #@elemento.contenido_id = @contenido.id
-      #@contenido_profile.contenido_id = @contenido.id
+      
       
       #@elemento.save!
-      #@contenido_profile.save!
+      
 
       redirect_to :controller => :app_noticias, :action => "index"
     end

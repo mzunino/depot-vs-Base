@@ -1,0 +1,48 @@
+
+<% form_for :contenido, :url => { :controller => "app_noticias", :action => :save_contenido } do |f| %>
+
+<%= label_tag "Título / Descripción:" %>
+<%= f.text_field :descripcion, :size => 15 %>
+
+<%= label_tag "Seleccione un Template :" %>
+<%= f.collection_select  :tipo_id, TipoContenido.find(:all), :id, :descripcion %>
+
+<%= label_tag  "Seleccione la aplicación a la que pertenece :" %>
+<%= f.collection_select  :app_id, App.find(:all), :id, :nombre %>
+	
+
+<% if (!@elementos.nil? && @elementos.size() > 0) %>
+
+<p>Mira que hay <%= @elementos.size() %> elementos en la lista!!</p>
+	 <% @elementos.each do |elemento| -%>
+				<% fields_for "elemento[]", elemento do |subfield| %>
+				 
+				 		  <p><%= subfield.label :id, 'Id elemento:' %><br/>
+						  <%= subfield.text_field :id %></p>
+						
+						  <p><%= subfield.label :tipo_id, 'Tipo de elemento:' %><br/>
+						  <%= subfield.text_field :tipo_id %></p>
+	
+				 <% end -%>
+	
+				<hr />
+		<% end -%>
+		
+<% else %>
+
+
+
+
+<% end %>
+	
+<p><%= submit_tag 'save' %></p>
+
+<% end -%>
+
+<hr />
+
+
+
+
+
+

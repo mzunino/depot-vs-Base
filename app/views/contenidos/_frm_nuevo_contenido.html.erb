@@ -1,8 +1,28 @@
-
+ 
 <% form_for :contenido, :url => { :controller => "app_noticias", :action => :save_contenido } do |f| %>
 
-<%= label_tag "Título / Descripción:" %>
-<%= f.text_field :descripcion, :size => 15 %>
+<p>
+	<%= label_tag "Título / Descripción:" %>
+    <%= f.text_field :descripcion, :size => 15 %>
+</p>
+<p>
+	<%= label_tag "Fecha del contenido:" %>
+    <%= f.text_field :fecha, :size => 15 %>
+</p>
+<hr />
+<p>
+	<%= label_tag "Fecha inicio emisión:" %>
+    <%= f.text_field :fecha_inicio, :size => 14 %>
+</p>
+<p>
+	<%= label_tag "Fecha fin de emisión:" %>
+    <%= f.text_field :fecha_fin, :size => 14 %>
+</p>
+<p>
+	<%= label_tag "Rotación:" %>
+    <%= f.text_field :rotacion, :size => 2 %>
+</p>
+<p>
 
 <%= label_tag "Seleccione un Template :" %>
 <%= f.collection_select  :tipo_id, TipoContenido.find(:all), :id, :descripcion %>
@@ -10,6 +30,19 @@
 <%= label_tag  "Seleccione la aplicación a la que pertenece :" %>
 <%= f.collection_select  :app_id, App.find(:all), :id, :nombre %>
 	
+<hr />
+
+<p>
+	<% profile = Profile.new() %>
+	<% fields_for "profiles[]", profile do |subfield| %>
+		    <%= label_tag  "Selección de perfiles para los que estará disponible: <br/>
+			Aca se debe mostrar una lista de perfiles para los que el contenido estará dispobible" %>
+			
+			<%= subfield.collection_select  :id, Profile.find(:all), :id, :descripcion %>
+	<% end %>	
+</p>
+
+<hr />
 
 <% if (!@elementos.nil? && @elementos.size() > 0) %>
 
@@ -28,13 +61,9 @@
 				<hr />
 		<% end -%>
 		
-<% else %>
-
-
-
-
 <% end %>
-	
+
+
 <p><%= submit_tag 'save' %></p>
 
 <% end -%>
