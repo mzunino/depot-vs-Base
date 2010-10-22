@@ -58,8 +58,8 @@
 
 <p>	
 <% @profiles.each do |profile| -%>
-				<% fields_for "profile[]", profile do |subfield| %>
 				
+				<% fields_for "profiles[]", profile  do |subfield| %>
 			    <%= label_tag  "Selección de perfiles para los que estará disponible: <br/>
 				Aca se debe mostrar una lista de perfiles para los que el contenido estará dispobible" %>
 				

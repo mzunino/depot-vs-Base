@@ -1,0 +1,83 @@
+
+<% form_for :contenido, :url => { :controller => "app_noticias", :action => :save_contenido } do |f| %>
+
+
+<p><%= f.label :id, 'Id de contenido:' %><br/>
+ <%= f.text_field :id %></p>
+
+<p>
+	<%= label_tag "Título / Descripción:" %>
+    <%= f.text_field :descripcion, :size => 15 %>
+</p>
+<p>
+	<%= label_tag "Fecha del contenido:" %>
+    <%= f.text_field :fecha, :size => 15 %>
+</p>
+<hr />
+<p>
+	<%= label_tag "Fecha inicio emisión:" %>
+    <%= f.text_field :fecha_inicio, :size => 14 %>
+</p>
+<p>
+	<%= label_tag "Fecha fin de emisión:" %>
+    <%= f.text_field :fecha_fin, :size => 14 %>
+</p>
+<p>
+	<%= label_tag "Rotación:" %>
+    <%= f.text_field :rotacion, :size => 2 %>
+</p>
+<p>
+
+<%= label_tag "Seleccione un Template :" %>
+<%= f.collection_select  :tipo_id, TipoContenido.find(:all), :id, :descripcion %>
+
+<%= label_tag  "Seleccione la aplicación a la que pertenece :" %>
+<%= f.collection_select  :app_id, App.find(:all), :id, :nombre %>
+	
+<hr />
+
+	
+<p>Mira que hay <%= @elementos.size() %> elementos en la lista!!</p>
+
+ <% @elementos.each do |elemento| -%>
+ 
+
+			<% fields_for "elemento[]", elemento do |subfield| %>
+			 
+			 		  <p><%= subfield.label :id, 'Id elemento:' %><br/>
+					  <%= subfield.text_field :id %></p>
+					
+					  <p><%= subfield.label :tipo_id, 'Tipo de elemento:' %><br/>
+					  <%= subfield.text_field :tipo_id %></p>
+
+			 <% end -%>
+
+			<hr />
+	<% end -%>
+	
+
+<p>	
+<% @profiles.each do |profile| -%>
+				<% fields_for "profile[]", profile do |subfield| %>
+				
+			    <%= label_tag  "Selección de perfiles para los que estará disponible: <br/>
+				Aca se debe mostrar una lista de perfiles para los que el contenido estará dispobible" %>
+				
+				<%= subfield.collection_select  :id, Profile.find(:all), :id, :descripcion %>
+			<% end %>	
+	<% end %>	
+</p>
+	
+	
+	
+<p><%= submit_tag 'save' %></p>
+
+<% end -%>
+
+<hr />
+
+
+
+
+
+
