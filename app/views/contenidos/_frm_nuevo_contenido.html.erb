@@ -30,6 +30,7 @@
 <%= label_tag  "Seleccione la aplicación a la que pertenece :" %>
 <%= f.collection_select  :app_id, App.find(:all), :id, :nombre %>
 	
+
 <hr />
 
 <p>
@@ -62,6 +63,10 @@
 		<% end -%>
 		
 <% end %>
+<div id="contenedor_elementos_nuevos">
+	
+</div>
+<%= button_to "Agregar nuevo elemento" , :action => :add_to_cart %>
 
 
 <p><%= submit_tag 'save' %></p>
