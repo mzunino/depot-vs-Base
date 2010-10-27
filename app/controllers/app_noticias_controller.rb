@@ -76,55 +76,42 @@ class AppNoticiasController < ApplicationController
     
     Contenido.transaction do
       
-      if(!params[:contenido].nil? && !params[:contenido][:id].nil? &&  !params[:contenido][:id] == "" )
-              @contenido = Contenido.find(params[:contenido][:id])
-        
-              if @contenido.update_attributes(params[:contenido])
-                flash[:notice] = 'El contenido se actualizo correctamente'
-              else
-                flash[:notice] = 'Ocurrió un error al actualizar el contenido: ' + @contenido.errors
-              end
-      else
-            @contenido = Contenido.new(params[:contenido])
-
-#            if @contenido.save
-#                    flash[:notice] = 'El contenido fue creado correctamente'
-#            else
-#                    flash[:notice] = 'Ocurrió un error al crear el contenido: ' + @contenido.errors
-#            end
-
-       end
-#      @contenido = Contenido.new()
-#      @contenido.id = params[:contenido][:id]
-#      @contenido.tipo_id = params[:contenido][:template_id] 
-#      @contenido.descripcion = params[:contenido][:descripcion]
-#      @contenido.rotacion = params[:contenido][:rotacion]
-#      @contenido.fecha = params[:contenido][:fecha_ingreso]
-#      @contenido.app_id = params[:contenido][:app_id]
+      if(!params[:contenido].nil? && !params[:contenido][:id].nil? )
       
-#      @contenido.update_attributes(params[:contenido])
-#
-#      
-#      # Salvando los elementos del contenido
-#      @elementos = params[:elemento]
-#      if (!@elementos.nil? && @elementos.size() > 0 )
-#          
-#            for elemento in @elementos
-#                  elemento.contenido_id = @contenido.id
-#                  elemento.save!
-#            end
-#
-#      end 
+      
+             logger.debug(" Salvando contenido existente id: #{params[:contenido][:id]}")
+            @contenido = Contenido.find(params[:contenido][:id])
+
+       # Cargando nuevos valores
+            @contenido.id = params[:contenido][:id]
+            @contenido.tipo_id = params[:contenido][:template_id] 
+            @contenido.descripcion = params[:contenido][:descripcion]
+            @contenido.rotacion = params[:contenido][:rotacion]
+            @contenido.fecha = params[:contenido][:fecha_ingreso]
+            @contenido.app_id = params[:contenido][:app_id]
+
+            if @contenido.update_attributes(params[:contenido])
+              flash[:notice] = 'El contenido se actualizo correctamente'
+            else
+              flash[:notice] = 'Ocurrió un error al actualizar el contenido: ' + @contenido.errors
+            end
+        
+      else
+        
+            logger.debug(" Salvando contenido nuevo #{params[:contenido][:id]}")
+            @contenido = Contenido.new(params[:contenido])
+            
+            # Salvando nuevo contenido
+            @contenido.save!
+      end
+
+      
       
       logger.debug(" ELEMENTOS !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! #{params[:elemento]}")
-#      logger.debug("Se guarda el contenido id: #{@contenido.id} y el profile_id: #{}")
-#      @contenido_profile = ContenidoProfile.new()
-#      @contenido_profile.contenido_id = @contenido.id
-#      @contenido_profile.profile_id = params[:contenido][:profile_id]
-#      @contenido_profile.save!
 
       
        # Salvando los elementos del contenido
+       actualizarElementosContenido()
 
        # Salvando asociaciones del contenido con los profiles habilitados
        asociarContenidoAPerfiles()
@@ -157,6 +144,42 @@ class AppNoticiasController < ApplicationController
 private 
 
 
+  # Recorre la lista de elementos pasada, si hay cambio en los mismos los actualiza y si hay nuevos los agrega
+  # Params: :elementos[], :contenido
+  def actualizarElementosContenido
+
+    
+          # Se borran elementos originales del contenido
+            @elementos_asociados = Elemento.find(:all, :conditions => "contenido_id = #{params[:contenido][:id]}")
+            
+            for elemento in @elementos_asociados
+                    elemento.destroy
+            end
+            
+
+            @elementos = params[:elemento]
+            logger.debug("Esta es la cantidad de elementos para grabar nuevos: #{@elementos.size()}"  )
+            if (!@elementos.nil? && @elementos.size() > 0 )
+              
+                      # Guardando los nuevos elementos
+                      @elementos.each do |elemento|
+
+                                  campos = elemento[1]  # 1 corresponde al hash de campos / 0 es el id del elemento actual
+                                  
+                                  elemento_nuevo = Elemento.new()
+                                  elemento_nuevo.id = campos[:id]
+                                  elemento_nuevo.ubicacion = campos[:ubicacion] 
+                                  elemento_nuevo.contenido_id = campos[:contenido_id]
+                                  elemento_nuevo.valor = campos[:valor]
+                                  elemento_nuevo.tipo_id = campos[:tipo_id]
+                                  
+                                  # Salvo
+                                  elemento_nuevo.save!
+         
+                      end
+              end 
+  end
+
   # Asocia una lista de profiles a un contenido determinado
   # Params: :profiles[], :contenido
   def asociarContenidoAPerfiles
@@ -175,23 +198,10 @@ private
                       # Guardando las nuevas asociaciones
                       for profile in @profiles
           
-                        
-                        
-                            logger.debug("Consultando contenido id: #{params[:contenido][:id]} y profile = #{profile[0]} ")
-                        
-                            asociacion_con_profile = ContenidoProfile.find(:all, :conditions => "contenido_id = #{params[:contenido][:id]} and profile_id = #{profile[0]}")
-                            
-                            logger.debug("Con contenido id: #{params[:contenido][:id]} se encontraron #{asociacion_con_profile.size()} asociaciones")
-                            if( asociacion_con_profile.nil? )
-                            
                                   contenido_profile = ContenidoProfile.new()
                                   contenido_profile.profile_id = profile[0]
                                   contenido_profile.contenido_id = params[:contenido][:id]
                                   contenido_profile.save!
-                                  logger.debug("Asociacion contenidos_profiles: contenido id: #{params[:contenido][:id]} y profile = #{profile[0]} guardada")
-                                  
-                            end
-                            
           
                       end
               end 

@@ -79,8 +79,10 @@ private
   end
 
 
-
-
+def method_missing( id, *argumentos )
+  puts "El método #{id} fue invocado, pero no existe. Tiene " + 
+       "estos argumentos: #{argumentos.join(", ")}"
+end
 
 protected
   def authorize
