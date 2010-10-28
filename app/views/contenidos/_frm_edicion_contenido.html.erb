@@ -38,29 +38,42 @@
 	
 <p>Mira que hay <%= @elementos.size() %> elementos en la lista!!</p>
 
- <% @elementos.each do |elemento| -%>
- 
+<%
+	@contenedor_elementos = "contenedor_elementos"
 
-			<% fields_for "elemento[]", elemento do |subfield| %>
-			 
-					  <%= subfield.hidden_field :id %>
-					  <%= subfield.hidden_field :contenido_id %>
-					
-					  <p><%= subfield.label :ubicacion, 'Ubicacion:' %><br/>
-					  <%= subfield.text_field :ubicacion %></p>
-					  
-					  <p><%= subfield.label :tipo_id, 'Tipo de elemento:' %><br/>
-					  <%= subfield.collection_select  :tipo_id, TipoElemento.find(:all), :id, :descripcion %>
+%>
 
-					  <p><%= subfield.label :valor, 'Valor:' %><br/>
-					  <%= subfield.text_field :valor %></p>
-					  
-			 <% end -%>
+<div id="contenedor_elementos"> 
 
-			<hr />
-	<% end -%>
+	 <% @elementos.each do |elemento| -%>
+	 
 	
+				<% fields_for "elemento[]", elemento do |subfield| %>
+				
+				 	<div id="elemento_id_<%= elemento.id %>">
+						  <%= subfield.hidden_field :id %>
+						  <%= subfield.hidden_field :contenido_id %>
+						
+						  <p><%= subfield.label :ubicacion, 'Ubicacion:' %><br/>
+						  <%= subfield.text_field :ubicacion %></p>
+						  
+						  <p><%= subfield.label :tipo_id, 'Tipo de elemento:' %><br/>
+						  <%= subfield.collection_select  :tipo_id, TipoElemento.find(:all), :id, :descripcion %>
+	
+						  <p><%= subfield.label :valor, 'Valor:' %><br/>
+						  <%= subfield.text_field :valor %></p>
+					</div>
+						  
+				 <% end -%>
+	
+				<hr />
+		<% end -%>
 
+	<input type="hidden" value="0" id="theValue" />
+	
+	<input type="button" id="button" value="agregar elemento" onClick='mostrarModalNuevoRegistro("/elementos/nuevo_elemento/")'/>
+
+</div>	
 <p>	
 <% @profiles.each do |profile| -%>
 				
@@ -80,9 +93,4 @@
 <% end -%>
 
 <hr />
-
-
-
-
-
-
+	

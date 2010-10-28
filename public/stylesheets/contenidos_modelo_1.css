@@ -11,6 +11,11 @@ body{
 
 }
 
+.div_eliminar{
+	  clear: both;
+	
+}
+
 h1 {
         /* font:  150% sans-serif; */
         font:  150% ; 

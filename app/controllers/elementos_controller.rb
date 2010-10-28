@@ -10,6 +10,17 @@ class ElementosController < ApplicationController
     end
   end
 
+
+  def nuevo_elemento
+    
+    @id_elemento_actual = params[:id]
+    
+    # muestra una noticia determinada
+    render(:layout => false)
+  
+  end
+
+
   # GET /elementos/1
   # GET /elementos/1.xml
   def show

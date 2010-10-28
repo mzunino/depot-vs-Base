@@ -15,7 +15,7 @@
 				@lista_func_disponibles = FuncApp.find(:all, :conditions => "app_id = #{elemento.app_id}")
 
 			%>
-				<button onclick='mostrarFuncionalidad("div_menu_<%= elemento.app_id %>")' /><%=texto_link_app%></button> 
+				<button onclick='mostrarFuncionalidad("div_menu_<%= elemento.app_id %>")' ><%=texto_link_app%></button> 
 					
 				<% if(!@lista_func_disponibles.nil? && @lista_func_disponibles.size() > 0) %>
 					<div  id="div_menu_<%= elemento.app_id %>" style="display:none">

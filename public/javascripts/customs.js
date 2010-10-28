@@ -182,3 +182,132 @@ function remplazarComponente ( componente, contenido) {
   	
 }
 
+/** Para elementos nuevos **/
+
+
+
+
+/** Para carga de nuevos registros **/
+
+
+function addNuevoRegistro(divContenedorRegistros, contenido){
+
+	// Se genera el contenido para un nuevo Registro
+	
+    var ni = document.getElementById(divContenedorRegistros);
+    var numi = document.getElementById('theValue');
+    var num = (document.getElementById("theValue").value - 1) + 2;
+    numi.value = num;
+    var divIdName = divContenedorRegistros + num;
+    var newdiv = document.createElement('div');
+    newdiv.setAttribute("id", divIdName);
+    newdiv.setAttribute("style", "display: none;");
+    newdiv.innerHTML = "<div id=\"" + divIdName + "\"><a href=\"javascript:;\" class=\"comando_eliminar\" onclick=\"removerRegistro(\'" + divContenedorRegistros + "\',\'" + divIdName + "\')\">Borrar</a>" + contenido + "</div>";
+    ni.appendChild(newdiv);
+    
+    // Se procede a mostrar el nuevo Div con efecto
+    $("#" + divIdName).toggle("normal");
+}
+
+function removerRegistro(divContenedorRegistros, divNum) {
+  var d = document.getElementById(divContenedorRegistros);
+  var olddiv = document.getElementById(divNum);
+  d.removeChild(olddiv);
+}
+
+
+function agregarContenido(divContenedorRegistros, divAgregar){
+
+	// Se genera el contenido para un nuevo Registro
+	
+    var ni = document.getElementById(divContenedorRegistros);
+	var nRe = document.getElementById(divAgregar);
+	
+	var numi = document.getElementById('theValue');
+
+    var num = (numi - 1) + 2;
+			
+    numi = num;
+	
+    var divIdName = divAgregar + "_" + num;
+
+// Cambio el nombre del div para que se cree un nuevo elemento
+	nRe.setAttribute("id", divIdName);
+	ni.appendChild(nRe);
+     
+	// Cierro la ventana modal 
+	closeModal();
+
+}
+
+
+function obtenerOrdinalNuevosRegistros(){
+	
+		var numi = document.getElementById('theValue');
+
+	    var num = (numi - 1) + 2;
+				
+	    numi = num;
+		
+		return numi;
+}
+
+
+function mostrarModalNuevoRegistro(url){
+
+	var http = createAjax();
+	var params = "";
+	var cont = "";
+	
+	var numi = document.getElementById('theValue').value;
+
+    var num = (numi - 1) + 2;
+				
+    numi = num;
+		
+	var urlCompleta = url + numi;
+
+
+	http.open("GET", urlCompleta, true);
+
+	http.onreadystatechange = function() {//Call a function when the state changes.
+		
+		if(http.readyState == 4 && http.status == 200) {
+			mostrarContenido( http.responseText );
+			
+		}
+	}
+	http.send(null);
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

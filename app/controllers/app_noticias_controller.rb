@@ -148,6 +148,8 @@ private
   # Params: :elementos[], :contenido
   def actualizarElementosContenido
 
+
+           contenido_id = params[:contenido][:id]
     
           # Se borran elementos originales del contenido
             @elementos_asociados = Elemento.find(:all, :conditions => "contenido_id = #{params[:contenido][:id]}")
@@ -169,7 +171,7 @@ private
                                   elemento_nuevo = Elemento.new()
                                   elemento_nuevo.id = campos[:id]
                                   elemento_nuevo.ubicacion = campos[:ubicacion] 
-                                  elemento_nuevo.contenido_id = campos[:contenido_id]
+                                  elemento_nuevo.contenido_id = contenido_id
                                   elemento_nuevo.valor = campos[:valor]
                                   elemento_nuevo.tipo_id = campos[:tipo_id]
                                   
