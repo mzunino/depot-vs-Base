@@ -259,13 +259,11 @@ function mostrarModalNuevoRegistro(url){
 	var params = "";
 	var cont = "";
 	
-	var numi = document.getElementById('theValue').value;
-
-    var num = (numi - 1) + 2;
-				
-    numi = num;
+ 	var numi = document.getElementById('elementsCount');
+    var num = (document.getElementById("elementsCount").value - 1) + 2;
+    numi.value = num;
 		
-	var urlCompleta = url + numi;
+	var urlCompleta = url + numi.value;
 
 
 	http.open("GET", urlCompleta, true);

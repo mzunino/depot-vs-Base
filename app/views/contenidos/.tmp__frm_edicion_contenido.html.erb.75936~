@@ -35,8 +35,6 @@
 	
 <hr />
 
-
-<!-- start div partial elementos -->
 	
 <p>Mira que hay <%= @elementos.size() %> elementos en la lista!!</p>
 
@@ -71,23 +69,10 @@
 				<hr />
 		<% end -%>
 
-</div>
-
-<div>
-	<input type="hidden" value="0" id="elementsCount" />
+	<input type="hidden" value="0" id="theValue" />
+	
 	<input type="button" id="button" value="agregar elemento" onClick='mostrarModalNuevoRegistro("/elementos/nuevo_elemento/")'/>
-</div>
 
-<hr />
-
-<!-- ends div partial elementos -->
-
-<!-- starts div partial profiles -->
-
-<div>
-	<input type="hidden" value="0" id="elementsCount" />
-		
-	<input type="button" id="button" value="agregar elemento" onClick='mostrarModalNuevoRegistro("/elementos/nuevo_elemento/")'/>
 </div>	
 <p>	
 <% @profiles.each do |profile| -%>
@@ -101,7 +86,7 @@
 	<% end %>	
 </p>
 	
-<!-- ends div partial profiles -->	
+	
 	
 <p><%= submit_tag 'save' %></p>
 
