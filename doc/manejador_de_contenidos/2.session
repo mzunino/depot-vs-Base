@@ -1,9 +1,11 @@
-window_sizes 1280 673 208 1066 530 64
+window_sizes 1270 669 208 1056 526 64
 diagrams
   active  classdiagram_ref 129154 // Manejador de Contenidos
-    1066 532 100 4 240 0
+    1066 532 100 4 0 0
 end
 show_stereotypes
+selected 
+package_ref 129 // manejador_de_contenidos
 open
   class_ref 129154 // Perfil
   class_ref 129282 // Container

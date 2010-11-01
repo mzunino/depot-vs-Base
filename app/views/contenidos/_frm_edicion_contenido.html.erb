@@ -84,19 +84,22 @@
 
 <!-- starts div partial profiles -->
 
-<div>
-	<input type="hidden" value="0" id="elementsCount" />
-		
-	<input type="button" id="button" value="agregar elemento" onClick='mostrarModalNuevoRegistro("/elementos/nuevo_elemento/")'/>
-</div>	
 <p>	
-<% @profiles.each do |profile| -%>
+<% @profiles_all.each do |profile| -%>
 				
 				<% fields_for "profiles[]", profile  do |subfield| %>
-			    <%= label_tag  "Selección de perfiles para los que estará disponible: <br/>
-				Aca se debe mostrar una lista de perfiles para los que el contenido estará dispobible" %>
+								
+						<% if @hash_profiles_asociados[profile.id].nil?  %> 
+								Debe estar UNCHECKED
+								<%=subfield.check_box :id, {:checked => "false", :value => profile.id }%>
+						<%  else %>
+								DEBE ESTAR CHECKED
+								<%=subfield.check_box :id, { :checked => "checked", :value => profile.id }%>																			
+						<%  end 	%>
+						
+						<%= profile.descripcion %>
+						<br />
 				
-				<%= subfield.collection_select  :id, Profile.find(:all), :id, :descripcion %>
 			<% end %>	
 	<% end %>	
 </p>

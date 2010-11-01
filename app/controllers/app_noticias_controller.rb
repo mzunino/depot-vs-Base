@@ -30,41 +30,26 @@ class AppNoticiasController < ApplicationController
   # GET /apps/edit
   def edit
     
-        #logger.debug("Se esta pasando el id: #{params[:contenido][:id]}"  )
+        # Se obtienen el contenido por el id indicado
         @contenido = Contenido.find(params[:contenido][:id])
         
-        
-        #logger.debug("Este es el contenido id obtenido: #{@contenido.id}"  )
-        
+        # Se obtienen los elementos asociados al contenido
         @elementos = Elemento.find(:all, :conditions => "contenido_id = #{@contenido.id}")
-        #logger.debug ("elemento id : #{@lista_elementos[1].id}")
         
-        
-        logger.debug("----------------------------------------------------------------Consultando profiles!!!!!! ")
+        # Se cargan todos los profiles asociados al contenido actual
         @contenidos_profiles = ContenidoProfile.find(:all, :conditions => "contenido_id = #{params[:contenido][:id]}")
-        logger.debug("Contenido de profiles!!!!!!:  #{@contenidos_profiles.size()} ")
         
-        @profiles = Array.new()
-        
+        @hash_profiles_asociados = {}
         for contenido_profile in @contenidos_profiles
         
-              logger.debug("Cargando profile id: #{contenido_profile.profile_id}")
               profile = Profile.find_by_id(contenido_profile.profile_id)
-              @profiles << profile
-          
-          
+              @hash_profiles_asociados[profile.id] = profile
+         
         end
-        #@profiles_habilitados = ContenidoProfile.find(:all, :conditions => "contenido_id = #{@contenido.id}")
-        
        
-        #logger.debug("Contenido del form: #{@form}")
-        
-        
-        #params[:tipo_template_id] = @contenido.tipo_id 
-        
-        #@profile  = @profiles_habilitados[1] 
-        
-        
+        # Obtengo todos los profiles de la Organización
+        #@profiles = Profile.find(:all, :conditions => "entidad_id = #{}");
+        @profiles_all = Profile.find( :all );
         
         
     
@@ -74,6 +59,8 @@ class AppNoticiasController < ApplicationController
     # GET /app_noticias/save
   def save_contenido
     
+    log.debug("Contenido #{params}")
+   
     Contenido.transaction do
       
       if(!params[:contenido].nil? && !params[:contenido][:id].nil? )
