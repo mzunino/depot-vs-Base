@@ -1,4 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :entities
+
   map.resources :func_apps
 
   map.resources :app_profiles

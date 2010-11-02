@@ -49,7 +49,7 @@ class AppNoticiasController < ApplicationController
        
         # Obtengo todos los profiles de la Organización
         #@profiles = Profile.find(:all, :conditions => "entidad_id = #{}");
-        @profiles_all = Profile.find( :all );
+        @profiles_all = Profile.obtener_profiles_entidad_actual();
         
         
     
@@ -59,7 +59,7 @@ class AppNoticiasController < ApplicationController
     # GET /app_noticias/save
   def save_contenido
     
-    log.debug("Contenido #{params}")
+    
    
     Contenido.transaction do
       
@@ -107,6 +107,8 @@ class AppNoticiasController < ApplicationController
       redirect_to :controller => :app_noticias, :action => "index"
       
     end
+    
+    flash[:notice] = "El contenido fue actualizado correctamente " 
   rescue ActiveRecord::RecordInvalid => e
     # force checking of errors even if products failed
     
@@ -182,13 +184,16 @@ private
             
 
             @profiles = params[:profiles]
+            
+            logger.debug("#################### CANTIDAD DE PROFILES A ASOCIAR: #{@profiles.size}")
             if (!@profiles.nil? && @profiles.size() > 0 )
               
                       # Guardando las nuevas asociaciones
                       for profile in @profiles
-          
+                              logger.debug("Contenido del profile: #{profile}")
+                              
                                   contenido_profile = ContenidoProfile.new()
-                                  contenido_profile.profile_id = profile[0]
+                                  contenido_profile.profile_id = profile
                                   contenido_profile.contenido_id = params[:contenido][:id]
                                   contenido_profile.save!
           

@@ -18,6 +18,11 @@
   </p>
 
   <p>
+    <%= f.label :entity_id, 'Entidad' %>
+    <%= f.collection_select :entity_id, Entity.find(:all), :id, :nombre, :prompt => "Seleccione una entidad" %>
+  </p>
+
+  <p>
     <%= f.label :nivel, 'Nivel de usuario' %>
     <%= f.select :nivel, Profile::NIVELES_DE_USUARIO, :selected => 0 %>
   </p>

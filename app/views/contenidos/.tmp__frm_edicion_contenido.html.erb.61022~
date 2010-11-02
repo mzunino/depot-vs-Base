@@ -14,7 +14,7 @@
 </p>
 <hr />
 <p>
-	<%= label_tag "Fecha inicio emisión:" %>sdfdsf
+	<%= label_tag "Fecha inicio emisión:" %>
     <%= f.text_field :fecha_inicio, :size => 14 %>
 </p>
 <p>
@@ -87,14 +87,20 @@
 <p>	
 <% @profiles_all.each do |profile| -%>
 				
-			<% if @hash_profiles_asociados[profile.id].nil?  %>
-					<%= check_box_tag 'profiles[]', profile.id, false %> 
-			<% else %>
-					<%= check_box_tag 'profiles[]', profile.id, true %>
-			<% end %>
-			
-			<%= profile.descripcion %>
-			<br />
+				<% fields_for "profiles[]", profile  do |subfield| %>
+								
+						<% if @hash_profiles_asociados[profile.id].nil?  %> 
+								Debe estar UNCHECKED
+								<%=subfield.check_box :id, {:checked => "false", :value => profile.id }%>
+						<%  else %>
+								DEBE ESTAR CHECKED
+								<%=subfield.check_box :id, { :checked => "checked", :value => profile.id }%>																			
+						<%  end 	%>
+						
+						<%= profile.descripcion %>
+						<br />
+				
+			<% end %>	
 	<% end %>	
 </p>
 	
