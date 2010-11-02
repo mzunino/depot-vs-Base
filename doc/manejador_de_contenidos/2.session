@@ -1,11 +1,10 @@
-window_sizes 1270 669 208 1056 526 64
+window_sizes 1274 749 208 1060 611 64
 diagrams
   active  classdiagram_ref 129154 // Manejador de Contenidos
-    1066 532 100 4 0 0
+    1066 613 100 4 0 0
 end
 show_stereotypes
-selected 
-package_ref 129 // manejador_de_contenidos
+selected attribute_ref 148354 // entidad_id
 open
   class_ref 129154 // Perfil
   class_ref 129282 // Container
@@ -20,5 +19,6 @@ open
   class_ref 138242 // AppNoticiasController
   class_ref 138370 // AppCuentasController
   class_ref 139522 // Funcionalidad
+  class_ref 140674 // Entidad
 end
 end

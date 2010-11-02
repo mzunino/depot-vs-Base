@@ -1,6 +1,6 @@
 format 66
 "manejador_de_contenidos"
-  revision 21
+  revision 22
   modified_by 2 "mauricio"
 
 
@@ -144,6 +144,22 @@ format 66
 	    classrelation_ref 143490 // <composition>
 	  b role_name "" protected
 	    classrelation_ref 143618 // <composition>
+      end
+
+      classrelation 147458 // <directional composition>
+	relation 146178 *-->
+	  a role_name "" multiplicity "1" protected
+	    classrelation_ref 147458 // <directional composition>
+	  b multiplicity "*" parent class_ref 140674 // Entidad
+      end
+
+      attribute 148354 "entidad_id"
+	protected explicit_type ""
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
       end
     end
 
@@ -866,6 +882,34 @@ format 66
 	    classrelation_ref 146178 // <composition>
 	  b role_name "" protected
 	    classrelation_ref 146306 // <composition>
+      end
+    end
+
+    class 140674 "Entidad"
+      visibility package 
+      cpp_decl ""
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      
+      attribute 148098 "nombre"
+	protected explicit_type ""
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+      end
+
+      attribute 148226 "descipcion"
+	protected explicit_type ""
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
       end
     end
   end
